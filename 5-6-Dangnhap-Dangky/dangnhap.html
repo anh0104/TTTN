@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng Nhập - MYE</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── Header (injected from header.html) ── -->
+<div id="header-root"></div>
+
+<main>
+  <div class="card">
+    <h1 class="card-title">ĐĂNG NHẬP</h1>
+
+    <div class="field">
+      <span class="field-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <input id="loginUsername" type="text" placeholder="Tên đăng nhập hoặc Email" autocomplete="username">
+    </div>
+
+    <div class="field">
+      <span class="field-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </span>
+      <input id="loginPassword" type="password" placeholder="Mật khẩu" autocomplete="current-password">
+      <button class="toggle-pw" onclick="togglePw('loginPassword', this)" type="button">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+      </button>
+    </div>
+
+    <div class="forgot"><a href="#">Quên mật khẩu?</a></div>
+
+    <button id="btnLogin" class="btn-primary btn-orange">ĐĂNG NHẬP</button>
+    <button class="btn-primary btn-blue" onclick="location.href='dangky.html'">ĐĂNG KÝ</button>
+
+    <div class="social-divider">hoặc Đăng ký bằng</div>
+
+    <div class="social-icons">
+      <button class="social-btn" title="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><linearGradient id="fb" x1="9.993" y1="9.993" x2="40.615" y2="40.615" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2aa4f4"/><stop offset="1" stop-color="#007ad9"/></linearGradient><path fill="url(#fb)" d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4z"/><path fill="#fff" d="M26.9 28.3H30l.5-3.5h-3.6v-1.8c0-1 .3-1.8 1.8-1.8H30V18c-.5-.1-2.1-.2-3.3-.2-3.3 0-5.5 2-5.5 5.6v2.4h-3.3v3.5h3.3V38h4V28.3z"/></svg>
+      </button>
+      <button class="social-btn" title="Google">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="#ffc107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 2.9l5.7-5.7C34 6.5 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#ff3d00" d="M6.3 14.7l6.6 4.8C14.7 16 19.1 12 24 12c3.1 0 5.8 1.1 7.9 2.9l5.7-5.7C34 6.5 29.3 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"/><path fill="#4caf50" d="M24 44c5.2 0 9.8-2 13.3-5.2l-6.1-5.2C29.3 35.2 26.8 36 24 36c-5.2 0-9.6-3.3-11.3-8H6.2C9.5 35.5 16.3 44 24 44z"/><path fill="#1976d2" d="M43.6 20.1H42V20H24v8h11.3c-.9 2.4-2.4 4.4-4.4 5.8l6.1 5.2C36.9 39.6 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ── Footer (injected from footer.html) ── -->
+<div id="footer-root"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

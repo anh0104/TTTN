@@ -20,17 +20,37 @@ export default function Committees({
         </div>
 
         {/* Row 1: 3 cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginBottom: 24 }}>
-          {items.slice(0, 3).map((item, i) => (
-            <CommitteeCard key={i} item={item} />
-          ))}
-        </div>
-        {/* Row 2: 2 cards centered */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, maxWidth: 660, margin: '0 auto' }}>
-          {items.slice(3, 5).map((item, i) => (
-            <CommitteeCard key={i} item={item} />
-          ))}
-        </div>
+        {/* Hàng 1: 2 card */}
+<div
+  style={{
+    display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, maxWidth: 660, margin: '0 auto 32px'
+  }}
+>
+  {items.slice(0, 2).map((item, i) => (
+    <CommitteeCard key={i} item={item} />
+  ))}
+</div>
+
+{/* Hàng 2: 2 card */}
+<div
+  style={{
+    display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, maxWidth: 660, margin: '0 auto 32px'
+  }}
+>
+  {items.slice(2, 4).map((item, i) => (
+    <CommitteeCard key={i} item={item} />
+  ))}
+</div>
+
+{/* Hàng 3: 1 card ở giữa */}
+<div
+  style={{
+    maxWidth: 420,
+    margin: '0 auto',
+  }}
+>
+  <CommitteeCard item={items[4]} />
+</div>
       </div>
     </section>
   )
@@ -39,7 +59,7 @@ export default function Committees({
 function CommitteeCard({ item }) {
   return (
     <div style={{
-      background: 'linear-gradient(145deg, #1a6de0, #0a3fa5)',
+      background: 'linear-gradient(145deg, #5ea1e5, #2563EB)',
       borderRadius: 20,
       padding: '40px 28px 32px',
       textAlign: 'center',

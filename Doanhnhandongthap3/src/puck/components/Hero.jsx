@@ -22,7 +22,7 @@ export default function Hero({
       <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '80px 32px', width: '100%' }}>
         {/* Glassmorphism card */}
         <div style={{
-          maxWidth: 560,
+          maxWidth: 650,
           background: 'rgba(255,255,255,0.12)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
@@ -30,6 +30,7 @@ export default function Hero({
           border: '1px solid rgba(255,255,255,0.25)',
           padding: '48px 44px 52px',
           boxShadow: '0 8px 40px rgba(0,0,0,0.15)',
+          textAlign: 'left', 
         }}>
           {/* Eyebrow */}
           <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: 13, fontWeight: 600, letterSpacing: '0.12em', marginBottom: 14, textTransform: 'uppercase' }}>
@@ -37,17 +38,22 @@ export default function Hero({
           </div>
 
           {/* Big title */}
-          <h1 style={{
-            fontSize: 'clamp(52px,7vw,90px)',
-            fontWeight: 800,
-            color: '#FFD875',
-            lineHeight: 1.05,
-            marginBottom: 28,
-            fontFamily: 'Georgia, serif',
-            textShadow: '0 2px 20px rgba(0,0,0,0.2)',
-          }}>
-            {title}
-          </h1>
+          <h1
+  style={{
+    fontSize: 'clamp(52px,7vw,90px)',
+    fontWeight: 800,
+    color: '#FFD875',
+    lineHeight: 1.15,
+    marginBottom: 28,
+    fontFamily: "'Playfair Display', serif",
+
+    whiteSpace: 'normal',
+    wordBreak: 'keep-all',
+    overflowWrap: 'break-word',
+  }}
+>
+  {title}
+</h1>
 
           {/* Description */}
           <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 15, lineHeight: 1.75, marginBottom: 36 }}>

@@ -16,7 +16,16 @@ export default function Header({
   ]
   return (
     <header style={{ background: '#0A2472', position: 'sticky', top: 0, zIndex: 999, boxShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 80 }}>
+      <div
+        style={{
+        maxWidth: 1500,
+        margin: '0 auto',
+        padding: '0 80px',
+        display: 'flex',
+        alignItems: 'center',
+        height: 80,
+      }}
+      >
         {/* Logo */}
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none', flexShrink: 0 }}>
           <div style={{ width: 56, height: 56, borderRadius: '50%', border: '2px solid rgba(255,255,255,0.4)', overflow: 'hidden', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -31,25 +40,60 @@ export default function Header({
           </div>
           <div>
             <div style={{ color: '#fff', fontWeight: 800, fontSize: 13, lineHeight: 1.25, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{logo}</div>
-            <div style={{ color: '#fff', fontWeight: 400, fontSize: 11, opacity: 0.85, marginTop: 1 }}>{logoSub}</div>
+            <div style={{ color: '#fff', fontWeight: 800, fontSize: 13, lineHeight: 1.25, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{logoSub}</div>
           </div>
         </a>
 
         {/* Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
-          {navLinks.map(l => (
-            <a key={l.label} href={l.href}
-              style={{ color: '#fff', textDecoration: 'none', fontSize: 14.5, fontWeight: 400, padding: '8px 16px', borderRadius: 4, transition: 'background 0.15s', whiteSpace: 'nowrap' }}
-              onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.12)'}
-              onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-            >{l.label}</a>
-          ))}
-          {/* VN/EN toggle */}
-          <div style={{ marginLeft: 12, background: '#C8A84B', borderRadius: 20, padding: '5px 12px', display: 'flex', gap: 6, alignItems: 'center' }}>
-            <span style={{ color: '#fff', fontSize: 12, fontWeight: 700 }}>VN</span>
-            <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 12 }}>EN</span>
-          </div>
-        </nav>
+        <nav
+          style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flex: 1,
+          marginLeft: 40,
+          }}
+        >
+        {navLinks.map((l) => (
+          <a
+            key={l.label}
+            href={l.href}
+            style={{
+            color: '#fff',
+            textDecoration: 'none',
+            fontSize: 14.5,
+            fontWeight: 400,
+            padding: '8px 10px',
+            borderRadius: 4,
+            transition: 'background 0.15s',
+            whiteSpace: 'nowrap',
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')
+          }
+          onMouseLeave={(e) =>
+          (e.currentTarget.style.background = 'transparent')
+          }
+        >
+        {l.label}
+      </a>
+    ))}
+
+  <div
+    style={{
+      marginLeft: 20,
+      background: '#C8A84B',
+      borderRadius: 20,
+      padding: '5px 12px',
+      display: 'flex',
+      gap: 6,
+      alignItems: 'center',
+    }}
+  >
+    <span style={{ color: '#fff', fontSize: 12, fontWeight: 700 }}>VN</span>
+    <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 12 }}>EN</span>
+  </div>
+</nav>
       </div>
     </header>
   )

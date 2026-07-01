@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect  } from 'react'
+import { useLocation } from "react-router-dom";
 
 export default function Header({
   logo = 'CÂU LẠC BỘ DOANH NHÂN ĐỒNG THÁP',
@@ -6,6 +7,19 @@ export default function Header({
   logoImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/320px-Camponotus_flavomarginatus_ant.jpg',
 }) {
   const [language, setLanguage] = useState("VN");
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   const navLinks = [
     { label: 'Trang chủ', href: '/' },
     { label: 'Giới thiệu', href: '/gioi-thieu' },
@@ -15,7 +29,23 @@ export default function Header({
     { label: 'Liên hệ', href: '/#lien-he' },
   ]
   return (
-    <header style={{ background: '#0A2472', position: 'sticky', top: 0, zIndex: 999, boxShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>
+   <header
+  style={{
+    background: isHome
+      ? (scrolled ? '#0A2472' : 'transparent')
+      : '#0A2472',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    zIndex: 999,
+    transition: 'all .35s ease',
+    boxShadow:
+      scrolled || !isHome
+        ? '0 4px 20px rgba(0,0,0,.18)'
+        : 'none',
+  }}
+>
       <div
         style={{
         maxWidth: 1500,

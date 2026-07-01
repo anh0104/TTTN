@@ -17,9 +17,9 @@ export default function AboutPage({
   return (
     <div>
       {/* Page title */}
-      <section style={{ padding: '64px 0 48px', background: '#fff', textAlign: 'center' }}>
+      <section style={{ padding: '64px 0 48px',marginTop: 40, marginBottom: 40, background: '#fff', textAlign: 'center' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
-          <h1 style={{ color: '#0A2472', fontSize: 'clamp(24px,3.5vw,42px)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 16 }}>{pageTitle}</h1>
+          <h1 style={{ color: '#0A2472', fontSize: 'clamp(24px,3.5vw,42px)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 16 }}>{pageTitle}</h1>
           <div style={{ width: 60, height: 4, background: '#E8A020', borderRadius: 2, margin: '0 auto' }} />
         </div>
       </section>

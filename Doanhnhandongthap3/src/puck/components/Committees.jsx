@@ -19,38 +19,37 @@ export default function Committees({
           <p style={{ color: '#1a3a8a', fontSize: 14, fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{subtitle}</p>
         </div>
 
-        {/* Row 1: 3 cards */}
         {/* Hàng 1: 2 card */}
-<div
-  style={{
-    display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, maxWidth: 660, margin: '0 auto 32px'
-  }}
->
-  {items.slice(0, 2).map((item, i) => (
-    <CommitteeCard key={i} item={item} />
-  ))}
-</div>
+        <div
+          style={{
+          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, maxWidth: 660, margin: '0 auto 32px'
+        }}
+        >
+        {items.slice(0, 2).map((item, i) => (
+          <CommitteeCard key={i} item={item} />
+        ))}
+        </div>
 
-{/* Hàng 2: 2 card */}
-<div
-  style={{
-    display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, maxWidth: 660, margin: '0 auto 32px'
-  }}
->
-  {items.slice(2, 4).map((item, i) => (
-    <CommitteeCard key={i} item={item} />
-  ))}
-</div>
+        {/* Hàng 2: 2 card */}
+        <div
+          style={{
+          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, maxWidth: 660, margin: '0 auto 32px'
+          }}
+        >
+        {items.slice(2, 4).map((item, i) => (
+          <CommitteeCard key={i} item={item} />
+        ))}
+        </div>
 
-{/* Hàng 3: 1 card ở giữa */}
-<div
-  style={{
-    maxWidth: 420,
-    margin: '0 auto',
-  }}
->
-  <CommitteeCard item={items[4]} />
-</div>
+        {/* Hàng 3: 1 card ở giữa */}
+        <div
+          style={{
+          maxWidth: 420,
+          margin: '0 auto',
+          }}
+        >
+        <CommitteeCard item={items[4]} />
+        </div>
       </div>
     </section>
   )
@@ -59,9 +58,9 @@ export default function Committees({
 function CommitteeCard({ item }) {
   return (
     <div style={{
-      background: 'linear-gradient(145deg, #5ea1e5, #2563EB)',
-      borderRadius: 20,
+      background: 'linear-gradient(145deg, #4e90d2, #2563EB)',
       padding: '40px 28px 32px',
+      borderRadius: '80px 0 80px 0',
       textAlign: 'center',
       boxShadow: '0 8px 24px rgba(10,64,165,0.25)',
       cursor: 'pointer',

@@ -5,7 +5,7 @@ export default function Header({
   logoSub = 'TẠI TP.HỒ CHÍ MINH',
   logoImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/320px-Camponotus_flavomarginatus_ant.jpg',
 }) {
-  const [open, setOpen] = useState(false)
+  const [language, setLanguage] = useState("VN");
   const navLinks = [
     { label: 'Trang chủ', href: '/' },
     { label: 'Giới thiệu', href: '/gioi-thieu' },
@@ -80,19 +80,52 @@ export default function Header({
     ))}
 
   <div
+  style={{
+    marginLeft: 20,
+    background: "#cea036",
+    borderRadius: 30,
+    padding: 4,
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+  }}
+>
+  <button
+    onClick={() => setLanguage("VN")}
     style={{
-      marginLeft: 20,
-      background: '#C8A84B',
+      border: "none",
+      outline: "none",
+      cursor: "pointer",
       borderRadius: 20,
-      padding: '5px 12px',
-      display: 'flex',
-      gap: 6,
-      alignItems: 'center',
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 700,
+      transition: "0.25s",
+      background: language === "VN" ? "#604128" : "transparent",
+      color: "#fff",
     }}
   >
-    <span style={{ color: '#fff', fontSize: 12, fontWeight: 700 }}>VN</span>
-    <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 12 }}>EN</span>
-  </div>
+    VN
+  </button>
+
+  <button
+    onClick={() => setLanguage("EN")}
+    style={{
+      border: "none",
+      outline: "none",
+      cursor: "pointer",
+      borderRadius: 20,
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 700,
+      transition: "0.25s",
+      background: language === "EN" ? "#604128" : "transparent",
+      color: "#fff",
+    }}
+  >
+    EN
+  </button>
+</div>
 </nav>
       </div>
     </header>

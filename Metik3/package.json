@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@puckeditor/core": "^0.22.0",
+    "react-router-dom": "^7.18.1"
+  }
+}

@@ -1,0 +1,874 @@
+
+:root {
+  --c-bg: #150822;
+  --c-bg-deep: #0c0518;
+  --c-pink: #ff2f92;
+  --c-cyan: #2fe4e8;
+  --c-cyan-dark: #0f8f96;
+  --c-gold: #f6c657;
+  --c-blue-dark: #1c4fbf;
+  --c-white: #ffffff;
+  --c-text-soft: #cbb8e6;
+
+  --font-display: 'Orbitron', 'Be Vietnam Pro', sans-serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+
+  --stage-w: 1920px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--c-bg-deep);
+  font-family: var(--font-body);
+  color: var(--c-white);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ============ STAGE / SCALE WRAPPER ============ */
+.ldp-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--c-bg-deep);
+}
+
+.ldp-stage {
+  width: var(--stage-w);
+  min-width: var(--stage-w);
+  position: relative;
+  transform-origin: top center;
+  background: var(--c-bg-deep);
+}
+
+/* ============ HEADER ============ */
+.ldp-header {
+  width: 100%;
+  height: 80px;
+  background:#8A008F;
+  border-bottom: 1px solid rgba(255, 111, 192, .35);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.header-inner{
+    width:100%;
+    max-width:1400px;      /* hoặc 1500px */
+    margin:0 auto;
+    padding:0 80px;        /* đẩy vào trong */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo img {
+  height: 76px;
+  width: auto;
+  display: block;
+}
+
+.header-logo__text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .5px;
+  color: var(--c-gold);
+  text-shadow: 0 0 8px rgba(246, 198, 87, .5);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .25);
+  font-size: 16px;
+  transition: .2s;
+}
+
+.header-icon:hover {
+  background: var(--c-pink);
+  border-color: var(--c-pink);
+}
+
+.btn-login-img {
+  display: inline-flex;
+  align-items: center;
+  transition: .15s;
+}
+
+.btn-login-img img {
+  height: 51px;
+  width: 176;
+  width: auto;
+  display: block;
+}
+
+.btn-login-img:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.btn-login-img.img-fallback {
+  background: linear-gradient(180deg, #4d9bff, var(--c-blue-dark));
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .5px;
+  padding: 9px 26px;
+  border-radius: 6px;
+}
+
+.btn-login-img.img-fallback img {
+  display: none;
+}
+
+.btn-login-img.img-fallback::after {
+  content: "ĐĂNG NHẬP";
+}
+
+.ldp-bg-wrap {
+  position: relative;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-color: #150822;
+}
+
+/* ============ HERO CONTENT ============ */
+.ldp-hero {
+  position: relative;
+  width: 100%;
+  min-height: 980px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 100;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-game-logo {
+  max-width: 465px;
+  height: auto;
+  margin-top: -250px;    /* kéo logo lên */
+  margin-bottom: 0;
+  position: relative;
+  z-index: 30;
+}
+
+.hero-title-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:10px;
+}
+
+.hero-title-img{
+    width:750px;      /* chỉnh theo ý muốn */
+    height: 469;
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 112px;
+  letter-spacing: 6px;
+  margin: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #bfe9ff 45%, #4fd7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 22px rgba(79, 215, 255, .65)) drop-shadow(0 0 45px rgba(255, 47, 146, .35));
+}
+
+.hero-title span {
+  background: linear-gradient(180deg, #ffffff 0%, #ffd7ef 45%, #ff6fc0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-title-sub {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 14px;
+  color: var(--c-gold);
+  margin-top: 6px;
+  text-shadow: 0 0 12px rgba(246, 198, 87, .6);
+}
+
+.hero-tagline {
+  margin: 22px 0 0;
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--c-text-soft);
+}
+
+/* ============ NAV TABS ============ */
+.ldp-navtabs{
+    position: relative;
+    width: 1280px;
+    margin: 150px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 250;
+}
+
+.menu-left,
+.menu-right{
+    display: flex;
+    align-items: center;
+    gap: 35px;   /* khoảng cách giữa 2 nút mỗi bên */
+}
+
+.navtabs-badge{
+    position: static;       /* bỏ absolute */
+    transform: none;
+    width: 190px;
+    flex-shrink: 0;
+}
+
+.navtab-img-btn img{
+    width: 220px;
+    display: block;
+}
+
+.navtabs-badge{
+    position:absolute;
+    left:50%;
+    top:-120px;              /* càng âm thì càng lên cao */
+    transform:translateX(-50%);
+    width:250px;            /* có thể tăng lên 185-190px nếu muốn */
+    z-index:100;
+}
+.menu-space{
+    flex:0 0 240px;
+}
+.navtabs-badge img{
+    width:100%;
+    display:block;
+}
+
+.nav-bottom-frame{
+    display:flex;
+    justify-content:center;
+    margin-top:-40px;   /* cho menu đè lên thanh */
+    position:relative;
+    z-index:1;
+}
+
+.nav-bottom-frame img{
+    width:100%;
+    max-width:2000px;
+}
+/* Xóa hoàn toàn style mặc định của button */
+.navtab-img-btn{
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0 !important;
+    margin: 0;
+    cursor: pointer;
+}
+
+.navtab-img-btn:hover,
+.navtab-img-btn:focus,
+.navtab-img-btn:active{
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Không cho Bootstrap tô màu */
+button.navtab-img-btn{
+    background-color: transparent !important;
+}
+
+/* Ảnh */
+.navtab-img-btn img{
+    display: block;
+    width: 220px;
+    height: auto;
+}
+
+/* ============ ĐĂNG KÝ DỰ THI ============ */
+.ldp-register {
+  position: relative;
+  padding: 20px 0 90px;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0 0 46px;
+}
+
+.section-title img {
+  max-width: 420px;
+  width: 32%;
+  min-width: 280px;
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(255, 111, 192, .45));
+}
+
+.register-card{
+    width:min(1450px,96%);
+    margin:0 auto;
+    background:transparent;
+    padding:40px 50px;
+}
+/* --- upload chính: ảnh nền themanh.png (tỉ lệ gốc 803x503) --- */
+.upload-main{
+    width:100%;
+    height:490px;
+    background-size:cover;
+    background-position:center;
+    border-radius:14px;
+}
+
+.upload-main:hover {
+  filter: brightness(1.05);
+}
+
+.uploaded-photos-list {
+  display: flex;
+  gap: 30px;
+  margin-top: -25px;
+  width: 100%;
+}
+
+.photo-slot {
+  flex: 1;
+  aspect-ratio: 1 / 1;   /* ô vuông, luôn giữ tỷ lệ */
+  border-radius: 12px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;   /* giữ nguyên tỷ lệ ảnh */
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+.photo-slot.is-filled {
+  background-size: cover;     /* khi đã chọn ảnh thì phủ kín ô */
+}
+
+.photo-slot.is-filled {
+  background-size: cover;
+}
+
+.photo-slot__remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.photo-slot__remove:hover {
+  background: var(--c-pink);
+}
+
+/* --- info readonly --- */
+/* ===== Thông tin nhân vật ===== */
+.info-readonly{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.info-readonly div{
+    display:flex;
+    align-items:center;
+}
+
+.info-readonly span{
+    min-width:120px;      /* để dấu : thẳng hàng */
+    font-size:22px;       /* chữ "Nhân vật", "Bang hội", "Máy chủ" to hơn */
+    font-weight:400;
+    color:#ffffff;
+}
+
+.info-readonly b{
+    font-size:22px;       /* chữ "Lục Trà Bạc Hà..." to hơn */
+    font-weight:500;
+    color:#FFD34D;        /* màu vàng */
+    text-shadow:
+        0 0 8px rgba(255,211,77,.5),
+        0 0 15px rgba(255,170,0,.3);
+}
+
+.contest-type{
+    display:flex;
+    justify-content:center;      /* căn giữa */
+    align-items:center;
+    gap:40px;                    /* khoảng cách cân bằng */
+    margin:10px 0 10px;
+}
+
+.type-radio{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.type-radio input{
+    width:28px;          /* tăng kích thước */
+    height:28px;
+    accent-color:#ff4fb3;
+    cursor:pointer;
+    flex-shrink:0;
+    margin-right:10px;
+}
+.type-radio img{
+    width:200px;                 /* to hơn (trước 150px) */
+    height:auto;
+    display:block;
+    opacity:.7;
+    filter:grayscale(.2);
+    transition:.25s;
+}
+
+.type-radio input:checked + img{
+    opacity:1;
+    transform:scale(1.08);
+    filter:drop-shadow(0 0 12px rgba(255,111,192,.6));
+}
+
+/* --- inputs --- */
+.ldp-input{
+    width:100%;
+    height:52px;                 /* bằng đúng chiều cao ảnh */
+    padding:0 18px;
+
+    border:none !important;
+    outline:none;
+    box-shadow:none !important;
+
+    background:transparent;
+    background-image:url("../assets/box trắng.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
+
+    color:#3b2650;
+    font-size:15px;
+}
+
+.ldp-input:focus{
+    background-image:url("../assets/box trắng.png");
+    background-size:100% 100%;
+    border:none !important;
+    outline:none;
+    box-shadow:none !important;
+}
+
+.form-control.ldp-input{
+    border:none !important;
+    background-color:transparent !important;
+    box-shadow:none !important;
+}
+
+.ldp-input::placeholder {
+  color: #b3a5c4;
+}
+
+select.ldp-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('../assets/box trắng.png'), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%233b2650' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, right 16px center;
+  background-size: 100% 100%, 12px 12px;
+  cursor: pointer;
+}
+.ldp-textarea{
+    width:100%;
+    height:100px;                     /* giữ đúng chiều cao */
+    padding:16px 18px;
+    resize:none;
+
+    background:transparent;
+    background-image:url("../assets/boxtextbu.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
+
+    border:none !important;
+    outline:none;
+    box-shadow:none !important;
+
+    color:#3b2650;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.ldp-textarea:focus{
+    background-image:url("../assets/boxtextbu.png");
+    background-size:100% 100%;
+    border:none !important;
+    box-shadow:none !important;
+}
+
+.ldp-textarea::placeholder{
+    color:#b3a5c4;
+}
+.ldp-input-label {
+  font-size: 25px;      /* to hơn */
+  font-weight: 0;
+  color: #ffffff;       /* chữ trắng */
+  margin: 8px 0 8px;
+  text-shadow: 0 0 8px rgba(255,255,255,.3); /* hiệu ứng nhẹ */
+}
+.ldp-upload-field {
+  display: block;
+  width: 100%;
+  height: 46px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  transition: .15s;
+}
+
+.ldp-upload-field:hover {
+  filter: brightness(1.08);
+}
+
+.register-note{
+    margin-top: 8px;          /* kéo lên gần 3 ảnh */
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: 0;
+
+    color: #fff;
+}
+
+.register-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.btn-img-agree,
+.btn-img-cancel {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: .15s;
+}
+
+.btn-img-agree img,
+.btn-img-cancel img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.btn-img-agree:hover,
+.btn-img-cancel:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.register-actions{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:0;
+}
+
+.btn-img-agree,
+.btn-img-cancel{
+    flex:1;              /* mỗi nút chiếm đều */
+    max-width:300px;     /* tăng lên 340-360px nếu muốn */
+    background:transparent;
+    border:none;
+    padding:0;
+    cursor:pointer;
+}
+
+.btn-img-agree img,
+.btn-img-cancel img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.btn-img-agree:hover,
+.btn-img-cancel:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
+/* ============ FOOTER ============ */
+.ldp-footer {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 12px;
+  color: #7a6a90;
+  background: var(--c-bg-deep);
+  position: relative;
+  z-index: 2;
+}
+.ldp-modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 5, 24, 0.75);
+  z-index: 1055;
+}
+
+.ldp-modal.show {
+  display: block;
+}
+
+.ldp-modal__dialog {
+  position: absolute;
+  top: 265px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1027px;
+}
+
+.ldp-modal__dialog--sm {
+  top: 660px;
+  left: 50%;
+  transform: translateX(6%);
+  width: 420px;
+}
+
+.ldp-modal__frame{
+    position:relative;
+}
+
+.ldp-modal__close-btn{
+    position:absolute;
+    top:18px;
+    right:18px;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+    background:transparent;
+    padding:0;
+    cursor:pointer;
+    z-index:100;
+}
+
+.ldp-modal__close-btn img{
+    width:32px;
+    height:30px;
+    display:block;
+}
+
+.ldp-modal__close-btn:hover{
+    transform:scale(1.08);
+}
+.ldp-modal__close-hotspot{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:40px;
+    height:40px;
+    background:transparent;
+    border:none;
+    color:#ff3ecf;
+    font-size:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:100;
+}
+
+.ldp-modal__close-hotspot:hover{
+    color:#fff;
+}
+.ldp-modal__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ldp-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--c-pink);
+  background: rgba(255, 47, 146, .5);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.ldp-modal__close:hover {
+  background: var(--c-pink);
+}
+
+@media (max-width:1919px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+.ldp-modal--rules {
+  position: absolute;
+  top: auto;
+  left: 0;
+  width: 100%;
+  height: auto;
+  bottom: 100%;
+  background: transparent;   /* không làm tối nền phía sau */
+  z-index: 150;
+}
+
+.ldp-modal__dialog.ldp-modal__dialog--rules {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: 900px;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-bottom: -30px; /* đè nhẹ xuống menu bên dưới, giống ảnh mẫu */
+}
+
+
+.ldp-modal__close-hotspot {
+  position: absolute;
+  top: 12%;
+  right: 3%;
+  width: 9%;
+  height: 9%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 3;
+}
+/* ===== Popup đăng ký thành công ===== */
+
+.ldp-modal--success{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    /* KHÔNG làm tối nền */
+    background:transparent;
+}
+
+.ldp-modal--success.show{
+    display:block;
+}
+
+.ldp-modal--success .ldp-modal__dialog{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:470px;     /* chỉnh theo kích thước ảnh */
+}
+
+.ldp-modal--success .ldp-modal__frame{
+    position:relative;
+}
+
+.ldp-modal--success .ldp-modal__img{
+    width:100%;
+    display:block;
+}
+
+.ldp-modal--success .ldp-modal__close{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:transparent;
+    border:none;
+    color:#ff5bd2;
+    font-size:28px;
+    cursor:pointer;
+}

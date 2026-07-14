@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MISS MISTER HÀO KHÍ DU HIỆP - Đăng ký dự thi</title>
+  <link rel="icon" href="assets/iconapp.png">
+
+  <!-- Bootstrap 5 (dùng cho grid/layout/form, KHÔNG dùng Bootstrap Modal JS cho popup) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<div class="ldp-modal ldp-modal--success" id="modalSuccess">
+
+    <div class="ldp-modal__dialog">
+
+        <div class="ldp-modal__frame">
+
+           <img class="ldp-modal__img"
+              src="assets/popup_thongbao.png"
+              alt="Đăng ký thành công">
+
+            <button
+              type="button"
+              class="ldp-modal__close-btn"
+              data-modal-close
+              aria-label="Đóng">
+              <img src="assets/exit.png" alt="Đóng">
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<body>
+
+  <div class="ldp-wrapper">
+    <div class="ldp-stage" id="ldpStage">
+
+    
+      <header class="ldp-header">
+        <div class="header-inner">
+          <a href="#" class="header-logo">
+            <img src="assets\iconapp.png" alt="Hào Khí Du Hiệp" onerror="this.style.display='none'">
+            
+          </a>
+          <div class="header-actions">
+            <a href="#" class="header-icon" aria-label="Trang chủ"><i class="bi bi-house-door-fill"></i></a>
+            <a href="#" class="header-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn-login-img">
+              <img src="assets/đn.png" alt="Đăng nhập" onerror="this.parentElement.classList.add('img-fallback')">
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div class="ldp-bg-wrap" style="background-image:url('assets/BGTRANGVOTING.png');">
+
+        <!-- ============ HERO CONTENT ============ -->
+        <section class="ldp-hero">
+          <div class="hero-content">
+            <img class="hero-game-logo" src="assets/Logo-HaoKhiDuHiep.png" alt="Hào Khí Du Hiệp"
+              onerror="this.style.display='none'">
+
+            <div class="hero-title-wrap">
+              <img src="assets\text.png" alt="Miss Mister" class="hero-title-img">
+            </div>
+          </div>
+
+          <!-- ===== NAV TABS + badge THAM GIA NGAY =====
+               data-modal-open="modalXxx" -> mở popup tương ứng (xem js/script.js) -->
+          <nav class="ldp-navtabs">
+
+    <div class="menu-left">
+        <button type="button" class="navtab-img-btn" data-modal-open="modalTheLe">
+            <img src="assets/thele.png" alt="Thể lệ">
+        </button>
+
+        <button type="button" class="navtab-img-btn" data-modal-open="modalHuongDan">
+            <img src="assets/hd.png" alt="Hướng dẫn">
+        </button>
+    </div>
+
+    <a href="#dangky" class="navtabs-badge">
+        <img src="assets/votengay.png" alt="Tham gia ngay">
+    </a>
+
+    <div class="menu-right">
+        <a href="#" class="navtab-img-btn">
+            <img src="assets/taigame.png" alt="Tải game">
+        </a>
+
+        <a href="#" class="navtab-img-btn">
+            <img src="assets/napthe.png" alt="Nạp thẻ">
+        </a>
+    </div>
+
+    <div class="ldp-modal ldp-modal--rules" id="modalTheLe" data-modal-backdrop>
+      <div class="ldp-modal__dialog ldp-modal__dialog--rules">
+        <div class="ldp-modal__frame">
+          <img class="ldp-modal__img" src="assets/popup_thele.png" alt="Thể lệ">
+          <button type="button" class="ldp-modal__close-hotspot" data-modal-close aria-label="Đóng"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ldp-modal ldp-modal--rules" id="modalHuongDan" data-modal-backdrop>
+      <div class="ldp-modal__dialog ldp-modal__dialog--rules">
+        <div class="ldp-modal__frame">
+          <img class="ldp-modal__img" src="assets/popup_huongdan.png" alt="Hướng dẫn">
+          <button type="button" class="ldp-modal__close-hotspot" data-modal-close aria-label="Đóng"></button>
+        </div>
+      </div>
+    </div>
+
+</nav>
+<div class="nav-bottom-frame">
+  <img src="assets/khungdautrang.png" alt="">
+</div>
+        </section>
+
+        <!-- ============ ĐĂNG KÝ DỰ THI ============ -->
+        <section class="ldp-register" id="dangky">
+          <h2 class="section-title">
+            <img src="assets/đkdt.png" alt="Đăng ký dự thi">
+          </h2>
+
+          <form class="register-card" id="registerForm">
+            <div class="row g-4">
+
+              <div class="col-lg-7">
+                <div class="upload-group" id="uploadGroup">
+                  <label class="upload-main" id="uploadMainLabel" for="fileMain"
+                    style="background-image:url('assets/themanh.png');">
+                    <input type="file" id="fileMain" accept="image/*" hidden>
+                  </label>
+
+                  <div class="uploaded-photos-list" id="uploadedPhotosList">
+                    <label class="photo-slot" data-slot="1" for="filePhoto1" style="background-image:url('assets/themanhnho.png');">
+                      <input type="file" id="filePhoto1" accept="image/*" hidden>
+                    </label>
+                    <label class="photo-slot" data-slot="2" for="filePhoto2" style="background-image:url('assets/themanhnho.png');">
+                      <input type="file" id="filePhoto2" accept="image/*" hidden>
+                    </label>
+                    <label class="photo-slot" data-slot="3" for="filePhoto3" style="background-image:url('assets/themanhnho.png');">
+                      <input type="file" id="filePhoto3" accept="image/*" hidden>
+                    </label>
+                  </div>
+                  <p class="register-note">*Bắt buộc phải đăng ký đủ 4 ảnh dự thi</p>
+                </div>
+              </div>
+
+              <!-- ============ CỘT THÔNG TIN ============ -->
+              <div class="col-lg-5">
+
+                <div class="info-readonly">
+                  <div><span>Nhân vật:</span> <b>Lục Trà Bạc Hà</b></div>
+                  <div><span>Bang hội:</span> <b>Lạc Viên</b></div>
+                  <div><span>Máy chủ:</span> <b>S1 - Lý Bạch</b></div>
+                </div>
+
+                <div class="contest-type">
+                  <label class="type-radio">
+                    <input type="radio" name="contestType" value="miss" checked>
+                    <img src="assets/thimiss.png" alt="Thi Miss">
+                  </label>
+                  <label class="type-radio">
+                    <input type="radio" name="contestType" value="mister">
+                    <img src="assets/thimisster.png" alt="Thi Mister">
+                  </label>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <input type="text" class="form-control ldp-input" placeholder="Nhập địa chỉ liên hệ nhận thưởng"
+                      required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="tel" class="form-control ldp-input" placeholder="Nhập số điện thoại" required>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="form-control ldp-input" required>
+                      <option value="" disabled selected hidden>Chọn khu vực</option>
+                      <option value="Miền Bắc">Miền Bắc</option>
+                      <option value="Miền Trung">Miền Trung</option>
+                      <option value="Miền Nam">Miền Nam</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="ldp-input-label">Nhập ảnh CMND/CCCD mặt trước và sau</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="ldp-upload-field" for="fileCccdFront"
+                      style="background-image:url('assets/mattruoc.png');">
+                      <input type="file" id="fileCccdFront" accept="image/*" hidden>
+                    </label>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="ldp-upload-field" for="fileCccdBack"
+                      style="background-image:url('assets/matsau.png');">
+                      <input type="file" id="fileCccdBack" accept="image/*" hidden>
+                    </label>
+                  </div>
+
+                  <div class="col-12">
+                    <textarea
+                      class="form-control ldp-input ldp-textarea"
+                      rows="6"
+                      placeholder="Nhập nội dung gửi (nội dung không quá 300 từ)"></textarea>
+                    </div>
+
+                  <div class="col-12">
+                    <input type="text" class="form-control ldp-input" placeholder="Nhập video dự thi">
+                  </div>
+                  <div class="col-12">
+                    <div class="register-actions">
+                      <button type="submit" class="btn-img-agree">
+                        <img src="assets/buttondongy.png" alt="Đồng ý">
+                      </button>
+
+                      <button type="reset" class="btn-img-cancel" id="btnCancel">
+                        <img src="assets/buttonhuybo.png" alt="Hủy bỏ">
+                      </button>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+
+           
+            
+          </form>
+        </section>
+
+      </div><!-- /.ldp-bg-wrap -->
+
+      <footer class="ldp-footer">
+        <p>&copy; 2026 Hào Khí Du Hiệp. Bản quyền thuộc về nhà phát hành.</p>
+      </footer>
+
+      
+
+    </div><!-- /.ldp-stage -->
+  </div><!-- /.ldp-wrapper -->
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

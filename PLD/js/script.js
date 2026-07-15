@@ -170,19 +170,16 @@
   }
 })();
 
-const form=document.getElementById("registerForm");
-const success=document.getElementById("modalSuccess");
+const form = document.getElementById("registerForm");
+const modalSuccess = document.getElementById("modalSuccess");
 
-form.addEventListener("submit",function(e){
+form.addEventListener("submit", function (e) {
+    e.preventDefault();      // Không reload trang
 
-    e.preventDefault();
-
-    success.classList.add("show");
-
+    modalSuccess.classList.add("show");
 });
-document.querySelector(".ldp-modal__close").onclick=function(){
-
-    document.getElementById("modalSuccess")
-            .classList.remove("show");
-
-}
+document.querySelectorAll("[data-modal-close]").forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.closest(".ldp-modal").classList.remove("show");
+    });
+});

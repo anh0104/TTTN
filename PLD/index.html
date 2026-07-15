@@ -16,91 +16,74 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <div class="ldp-modal ldp-modal--success" id="modalSuccess">
-
-    <div class="ldp-modal__dialog">
-
-        <div class="ldp-modal__frame">
-
-           <img class="ldp-modal__img"
-              src="assets/popup_thongbao.png"
-              alt="Đăng ký thành công">
-
+    <div class="ldp-modal__dialog mx-auto">
+        <div class="ldp-modal__frame position-relative">
+            <img
+                class="ldp-modal__img img-fluid w-100 d-block h-auto"
+                src="assets/popup_thongbao.png"
+                alt="Thông báo">
+            <div class="ldp-modal__success-text position-absolute top-50 start-50 translate-middle text-center fw-bold text-white">
+                Đã đăng ký thành công
+            </div>
             <button
-              type="button"
-              class="ldp-modal__close-btn"
-              data-modal-close
-              aria-label="Đóng">
-              <img src="assets/exit.png" alt="Đóng">
+                type="button"
+                class="ldp-modal__close-btn cursor-pointer position-absolute top-0 end-0 border-0 bg-transparent p-0"
+                data-modal-close
+                aria-label="Đóng">
+                <img class=" d-block" src="assets/exit.png" alt="Đóng">
             </button>
-
         </div>
-
     </div>
-
 </div>
 <body>
-
-  <div class="ldp-wrapper">
-    <div class="ldp-stage" id="ldpStage">
-
-    
-      <header class="ldp-header">
-        <div class="header-inner">
-          <a href="#" class="header-logo">
-            <img src="assets\iconapp.png" alt="Hào Khí Du Hiệp" onerror="this.style.display='none'">
-            
+  <div class="ldp-wrapper d-flex justify-content-center bg-dark">
+    <div class="ldp-stage position-relative" id="ldpStage">
+      <header class="ldp-header h-auto w-100 position-relative d-flex align-items-center ">
+        <div class="header-inner container-fluid px-5 d-flex justify-content-between align-items-center">
+          <a class="header-logo d-flex align-items-center gap-2">
+            <img class="img-fluid h-auto d-block" src="assets\iconapp.png" alt="Hào Khí Du Hiệp" onerror="this.style.display='none'"> 
           </a>
-          <div class="header-actions">
-            <a href="#" class="header-icon" aria-label="Trang chủ"><i class="bi bi-house-door-fill"></i></a>
-            <a href="#" class="header-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn-login-img">
-              <img src="assets/đn.png" alt="Đăng nhập" onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="header-actions d-flex align-items-center gap-3">
+            <a href="#" class="header-icon d-flex align-items-center justify-content-center rounded-circle="Trang chủ"><i class="bi bi-house-door-fill"></i></a>
+            <a href="#" class="header-icon d-flex align-items-center justify-content-center rounded-circle" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a class="btn-login-img d-inline-flex align-items-center">
+              <img class="img-fluid d-block" src="assets/đn.png" alt="Đăng nhập" onerror="this.parentElement.classList.add('img-fallback')">
             </a>
           </div>
         </div>
       </header>
-
-      <div class="ldp-bg-wrap" style="background-image:url('assets/BGTRANGVOTING.png');">
-
+      <div class="ldp-bg-wrap  position-relative w-100" style="background-image:url('assets/BGTRANGVOTING.png');">
         <!-- ============ HERO CONTENT ============ -->
-        <section class="ldp-hero">
-          <div class="hero-content">
-            <img class="hero-game-logo" src="assets/Logo-HaoKhiDuHiep.png" alt="Hào Khí Du Hiệp"
+        <section class="ldp-hero d-flex flex-column align-items-center w-100 position-relative">
+          <div class="hero-content  position-relative d-flex flex-column align-items-center text-center pt-5">
+            <img class="hero-game-logo img-fluid position-relative" src="assets/Logo-HaoKhiDuHiep.png" alt="Hào Khí Du Hiệp"
               onerror="this.style.display='none'">
 
-            <div class="hero-title-wrap">
-              <img src="assets\text.png" alt="Miss Mister" class="hero-title-img">
+            <div class="hero-title-wrap d-flex justify-content-center align-items-center mt-2">
+              <img src="assets\text.png" alt="Miss Mister" class="hero-title-img img-fluid d-block">
             </div>
           </div>
-
-          <!-- ===== NAV TABS + badge THAM GIA NGAY =====
-               data-modal-open="modalXxx" -> mở popup tương ứng (xem js/script.js) -->
-          <nav class="ldp-navtabs">
-
-    <div class="menu-left">
-        <button type="button" class="navtab-img-btn" data-modal-open="modalTheLe">
+          <nav class="ldp-navtabs mx-auto position-relative d-flex justify-content-between align-items-center">
+    <div class="menu-left d-flex align-items-center gap-4">
+        <button type="button" class="navtab-img-btn btn p-0 border-0 bg-transparent shadow-none" data-modal-open="modalTheLe">
             <img src="assets/thele.png" alt="Thể lệ">
         </button>
 
-        <button type="button" class="navtab-img-btn" data-modal-open="modalHuongDan">
-            <img src="assets/hd.png" alt="Hướng dẫn">
+        <button type="button" class="navtab-img-btn btn p-0 border-0 bg-transparent shadow-none" data-modal-open="modalHuongDan">
+            <img class="img-fluid d-block" src="assets/hd.png" alt="Hướng dẫn">
         </button>
     </div>
-
-    <a href="#dangky" class="navtabs-badge">
-        <img src="assets/votengay.png" alt="Tham gia ngay">
+    <a href="#dangky" class="navtabs-badge  position-static flex-shrink-0 position-absolute start-50 translate-middle-x">
+        <img  src="assets/votengay.png" alt="Tham gia ngay">
     </a>
-
-    <div class="menu-right">
+    <div class="menu-right d-flex align-items-center gap-4">
         <a href="#" class="navtab-img-btn">
-            <img src="assets/taigame.png" alt="Tải game">
+            <img class="w-100 d-block h-auto" src="assets/taigame.png" alt="Tải game">
         </a>
-
         <a href="#" class="navtab-img-btn">
-            <img src="assets/napthe.png" alt="Nạp thẻ">
+            <img class="w-100 d-block h-auto" src="assets/napthe.png" alt="Nạp thẻ">
         </a>
     </div>
-
     <div class="ldp-modal ldp-modal--rules" id="modalTheLe" data-modal-backdrop>
       <div class="ldp-modal__dialog ldp-modal__dialog--rules">
         <div class="ldp-modal__frame">
@@ -109,7 +92,6 @@
         </div>
       </div>
     </div>
-
     <div class="ldp-modal ldp-modal--rules" id="modalHuongDan" data-modal-backdrop>
       <div class="ldp-modal__dialog ldp-modal__dialog--rules">
         <div class="ldp-modal__frame">
@@ -118,70 +100,65 @@
         </div>
       </div>
     </div>
-
 </nav>
-<div class="nav-bottom-frame">
-  <img src="assets/khungdautrang.png" alt="">
+<div class="nav-bottom-frame position-relative d-flex justify-content-center">
+  <img class="w-100" src="assets/khungdautrang.png" alt="">
 </div>
         </section>
-
         <!-- ============ ĐĂNG KÝ DỰ THI ============ -->
-        <section class="ldp-register" id="dangky">
-          <h2 class="section-title">
-            <img src="assets/đkdt.png" alt="Đăng ký dự thi">
+        <section class="ldp-register position-relative py-3 pb-5" id="dangky">
+          <h2 class="section-title text-center mb-5">
+            <img class=" h-auto" src="assets/đkdt.png" alt="Đăng ký dự thi">
           </h2>
-
-          <form class="register-card" id="registerForm">
+          <form class="register-card mx-auto" id="registerForm">
             <div class="row g-4">
-
               <div class="col-lg-7">
                 <div class="upload-group" id="uploadGroup">
-                  <label class="upload-main" id="uploadMainLabel" for="fileMain"
+                  <label class="upload-main w-100" id="uploadMainLabel" for="fileMain"
                     style="background-image:url('assets/themanh.png');">
                     <input type="file" id="fileMain" accept="image/*" hidden>
                   </label>
 
-                  <div class="uploaded-photos-list" id="uploadedPhotosList">
-                    <label class="photo-slot" data-slot="1" for="filePhoto1" style="background-image:url('assets/themanhnho.png');">
+                  <div class="uploaded-photos-list d-flex gap-4 w-100 mt-n3" id="uploadedPhotosList">
+                    <label class="photo-slot text-white cursor-pointer d-flex align-items-center justify-content-center border-0 flex-fill position-relative rounded-3 d-block" data-slot="1" for="filePhoto1" style="background-image:url('assets/themanhnho.png');">
                       <input type="file" id="filePhoto1" accept="image/*" hidden>
                     </label>
-                    <label class="photo-slot" data-slot="2" for="filePhoto2" style="background-image:url('assets/themanhnho.png');">
+                    <label class="photo-slot text-white cursor-pointer d-flex align-items-center justify-content-centerborder-0 flex-fill position-relative rounded-3 d-block" data-slot="2" for="filePhoto2" style="background-image:url('assets/themanhnho.png');">
                       <input type="file" id="filePhoto2" accept="image/*" hidden>
                     </label>
-                    <label class="photo-slot" data-slot="3" for="filePhoto3" style="background-image:url('assets/themanhnho.png');">
+                    <label class="photo-slot text-white cursor-pointer d-flex align-items-center justify-content-center border-0 flex-fill position-relative rounded-3 d-block" data-slot="3" for="filePhoto3" style="background-image:url('assets/themanhnho.png');">
                       <input type="file" id="filePhoto3" accept="image/*" hidden>
                     </label>
                   </div>
-                  <p class="register-note">*Bắt buộc phải đăng ký đủ 4 ảnh dự thi</p>
+                  <p class="register-note mt-2 text-center text-white fw-normal fst-italic">
+                    *Bắt buộc phải đăng ký đủ 4 ảnh dự thi
+                  </p>
                 </div>
               </div>
-
               <!-- ============ CỘT THÔNG TIN ============ -->
               <div class="col-lg-5">
 
-                <div class="info-readonly">
+                <div class="info-readonly d-flex flex-column gap-3 mb-4">
                   <div><span>Nhân vật:</span> <b>Lục Trà Bạc Hà</b></div>
                   <div><span>Bang hội:</span> <b>Lạc Viên</b></div>
                   <div><span>Máy chủ:</span> <b>S1 - Lý Bạch</b></div>
                 </div>
+                <div class="contest-type d-flex justify-content-center align-items-center gap-4 mb-4">
 
-                <div class="contest-type">
-                  <label class="type-radio">
+                  <label class="type-radio d-flex align-items-center cursor-pointer">
                     <input type="radio" name="contestType" value="miss" checked>
-                    <img src="assets/thimiss.png" alt="Thi Miss">
+                    <img class="h-auto d-block " src="assets/thimiss.png" alt="Thi Miss">
                   </label>
-                  <label class="type-radio">
+                  <label class="type-radio d-flex align-items-center">
                     <input type="radio" name="contestType" value="mister">
-                    <img src="assets/thimisster.png" alt="Thi Mister">
+                    <img  class="h-auto d-block" src="assets/thimisster.png" alt="Thi Mister">
                   </label>
                 </div>
-
                 <div class="row g-3">
                   <div class="col-12">
-                    <input type="text" class="form-control ldp-input" placeholder="Nhập địa chỉ liên hệ nhận thưởng"
+                    <input type="text" class="form-control ldp-input w-100" placeholder="Nhập địa chỉ liên hệ nhận thưởng"
                       required>
                   </div>
-
                   <div class="col-md-6">
                     <input type="tel" class="form-control ldp-input" placeholder="Nhập số điện thoại" required>
                   </div>
@@ -193,61 +170,50 @@
                       <option value="Miền Nam">Miền Nam</option>
                     </select>
                   </div>
-
                   <div class="col-12">
-                    <div class="ldp-input-label">Nhập ảnh CMND/CCCD mặt trước và sau</div>
+                    <div class="ldp-input-label fs-4 text-white my-2">Nhập ảnh CMND/CCCD mặt trước và sau</div>
                   </div>
                   <div class="col-md-6">
-                    <label class="ldp-upload-field" for="fileCccdFront"
+                    <label class="ldp-upload-field  cursor-pointer d-block w-100 rounded-3" for="fileCccdFront"
                       style="background-image:url('assets/mattruoc.png');">
                       <input type="file" id="fileCccdFront" accept="image/*" hidden>
                     </label>
                   </div>
                   <div class="col-md-6">
-                    <label class="ldp-upload-field" for="fileCccdBack"
-                      style="background-image:url('assets/matsau.png');">
-                      <input type="file" id="fileCccdBack" accept="image/*" hidden>
-                    </label>
-                  </div>
-
+                  <label
+                    class="ldp-upload-field d-block w-100 rounded-3"
+                    for="fileCccdBack"
+                    style="background-image:url('assets/matsau.png');">
+                    <input type="file" id="fileCccdBack" accept="image/*" hidden>
+                  </label>
+                </div>
                   <div class="col-12">
                     <textarea
-                      class="form-control ldp-input ldp-textarea"
+                      class="form-control ldp-input ldp-textarea w-100"
                       rows="6"
                       placeholder="Nhập nội dung gửi (nội dung không quá 300 từ)"></textarea>
                     </div>
-
                   <div class="col-12">
                     <input type="text" class="form-control ldp-input" placeholder="Nhập video dự thi">
                   </div>
                   <div class="col-12">
-                    <div class="register-actions">
-                      <button type="submit" class="btn-img-agree">
-                        <img src="assets/buttondongy.png" alt="Đồng ý">
+                    <div class="register-actions d-flex justify-content-center gap-4 mt-0">
+                      <button type="submit" class="btn-img-agree flex-fill p-0 border-0 bg-transparent cursor-pointer">
+                        <img class="w-100 img-fluid d-block" src="assets/buttondongy.png" alt="Đồng ý">
                       </button>
-
-                      <button type="reset" class="btn-img-cancel" id="btnCancel">
-                        <img src="assets/buttonhuybo.png" alt="Hủy bỏ">
+                      <button type="reset" class="btn-img-cancel flex-fill p-0 border-0 bg-transparent cursor-pointer" id="btnCancel">
+                        <img class="w-100 img-fluid d-block" src="assets/buttonhuybo.png" alt="Hủy bỏ">
                       </button>
                     </div>
                 </div>
-
               </div>
-            </div>
-
-           
-            
+            </div>   
           </form>
         </section>
-
       </div><!-- /.ldp-bg-wrap -->
-
-      <footer class="ldp-footer">
+      <footer class="ldp-footer position-relative text-center py-4 small ">
         <p>&copy; 2026 Hào Khí Du Hiệp. Bản quyền thuộc về nhà phát hành.</p>
       </footer>
-
-      
-
     </div><!-- /.ldp-stage -->
   </div><!-- /.ldp-wrapper -->
 

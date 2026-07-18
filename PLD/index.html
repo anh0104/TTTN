@@ -21,24 +21,7 @@
 <body>
   <div class="ldp-wrapper d-flex justify-content-center bg-dark">
     <div class="ldp-stage position-relative" id="ldpStage">
-      <header class="ldp-header h-auto w-100 position-relative d-flex align-items-center ">
-        <div class="header-inner container-fluid px-5 d-flex justify-content-between align-items-center">
-          <a class="header-logo d-flex align-items-center gap-2">
-            <img class="img-fluid h-auto d-block" src="assets\iconapp.png" alt="Hào Khí Du Hiệp"
-              onerror="this.style.display='none'">
-          </a>
-          <div class="header-actions d-flex align-items-center gap-3">
-            <a href="#" class="header-icon d-flex align-items-center justify-content-center rounded-circle"
-              aria-label="Trang chủ"><i class="bi bi-house-door-fill"></i></a>
-            <a href="#" class="header-icon d-flex align-items-center justify-content-center rounded-circle"
-              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a class="btn-login-img d-inline-flex align-items-center">
-              <img class="img-fluid d-block" src="assets/đn.png" alt="Đăng nhập"
-                onerror="this.parentElement.classList.add('img-fallback')">
-            </a>
-          </div>
-        </div>
-      </header>
+      <div id="header-placeholder"></div>
       <div class="ldp-bg-wrap  position-relative w-100" style="background-image:url('assets/BGTRANGVOTING.png');">
         <!-- ============ HERO CONTENT ============ -->
         <section class="ldp-hero d-flex flex-column align-items-center w-100 position-relative">
@@ -50,32 +33,7 @@
               <img src="assets\text.png" alt="Miss Mister" class="hero-title-img img-fluid d-block">
             </div>
           </div>
-          <nav class="ldp-navtabs mx-auto position-relative d-flex justify-content-between align-items-center">
-            <div class="menu-left d-flex align-items-center gap-4">
-              <button type="button" class="navtab-img-btn btn p-0 border-0 bg-transparent shadow-none"
-                data-bs-toggle="modal" data-bs-target="#modalTheLe">
-                <img src="assets/thele.png" alt="Thể lệ">
-              </button>
-
-              <button type="button" class="navtab-img-btn btn p-0 border-0 bg-transparent shadow-none"
-                data-bs-toggle="modal" data-bs-target="#modalHuongDan">
-                <img class="img-fluid d-block" src="assets/hd.png" alt="Hướng dẫn">
-              </button>
-            </div>
-            <a href="vote.html"
-              class="navtabs-badge  position-static flex-shrink-0 position-absolute start-50 translate-middle-x">
-              <img src="assets/votengay.png" alt="Tham gia ngay">
-            </a>
-            <div class="menu-right d-flex align-items-center gap-4">
-              <a href="#" class="navtab-img-btn">
-                <img class="w-100 d-block h-auto" src="assets/taigame.png" alt="Tải game">
-              </a>
-              <a href="#" class="navtab-img-btn">
-                <img class="w-100 d-block h-auto" src="assets/napthe.png" alt="Nạp thẻ">
-              </a>
-            </div>
-
-          </nav>
+          <div id="navbar-placeholder"></div>
           <div class="nav-bottom-frame position-relative d-flex justify-content-center">
             <img class="w-100" src="assets/khungdautrang.png" alt="">
           </div>
@@ -193,56 +151,35 @@
     </div><!-- /.ldp-stage -->
   </div><!-- /.ldp-wrapper -->
 
-  <!-- Modal Thể Lệ (Bootstrap 5) – đặt ngoài wrapper để tránh scale transform -->
-  <div class="modal fade" id="modalTheLe" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered ldp-modal__dialog--rules-bs">
-      <div class="modal-content ldp-modal__content-transparent">
-        <div class="ldp-modal__frame">
-          <img class="ldp-modal__img" src="assets/popup_thele.png" alt="Thể lệ">
-          <button type="button" class="ldp-modal__close-hotspot" data-bs-dismiss="modal" aria-label="Đóng"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Hướng Dẫn (Bootstrap 5) -->
-  <div class="modal fade" id="modalHuongDan" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered ldp-modal__dialog--rules-bs">
-      <div class="modal-content ldp-modal__content-transparent">
-        <div class="ldp-modal__frame">
-          <img class="ldp-modal__img" src="assets/popup_huongdan.png" alt="Hướng dẫn">
-          <button type="button" class="ldp-modal__close-hotspot" data-bs-dismiss="modal" aria-label="Đóng"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal ĐÃ ĐĂNG KÝ THÀNH CÔNG (Bootstrap 5) -->
-  <div class="modal fade ldp-modal--success-modal" id="modalSuccess" tabindex="-1" aria-hidden="true"
-    data-bs-backdrop="true" data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered ldp-modal__dialog-success-bs">
-      <div class="modal-content ldp-modal__content-transparent">
-        <div class="ldp-modal__frame position-relative">
-          <img class="ldp-modal__img img-fluid w-100 d-block h-auto" src="assets/popup_thongbao.png" alt="Thông báo">
-          <div
-            class="ldp-modal__success-text position-absolute top-50 start-50 translate-middle text-center fw-bold text-white">
-            Đã đăng ký thành công
-          </div>
-          <button type="button"
-            class="ldp-modal__close-btn cursor-pointer position-absolute top-0 end-0 border-0 bg-transparent p-0"
-            data-bs-dismiss="modal" aria-label="Đóng">
-            <img class=" d-block" src="assets/exit.png" alt="Đóng">
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="popup-placeholder"></div>
 
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="js/home.js"></script>
+  <script>
+    (function () {
+      const components = [
+        { selector: '#header-placeholder', url: 'components/header/header.html' },
+        { selector: '#navbar-placeholder', url: 'components/navbar/navbar.html' },
+        { selector: '#popup-placeholder', url: 'components/popup/popup.html' }
+      ];
+      let loadedCount = 0;
+      components.forEach(comp => {
+        fetch(comp.url)
+          .then(r => r.text())
+          .then(html => {
+            const el = document.getElementById(comp.selector.substring(1));
+            if (el) el.outerHTML = html;
+            loadedCount++;
+            if (loadedCount === components.length) {
+              const script = document.createElement('script');
+              script.src = 'js/home.js';
+              document.body.appendChild(script);
+            }
+          })
+          .catch(err => console.error('Error loading component:', comp.url, err));
+      });
+    })();
+  </script>
 </body>
 
 </html>

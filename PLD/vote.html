@@ -15,37 +15,19 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
 
   <!-- style.css: dùng lại y nguyên phần chung với trang chủ (header/hero/nav/popup/footer) -->
-  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="css/home.css">
   <!-- votengay.css: CHỈ chứa phần riêng của trang Voting (danh sách thí sinh,
        tích lũy mốc đổi quà, bảng xếp hạng, popup nhận hoa free) để tránh
        nhồi hết vào 1 file style.css quá dài -->
-  <link rel="stylesheet" href="../css/vote.css">
-  <link rel="stylesheet" href="../css/popup.css">
+  <link rel="stylesheet" href="css/vote.css">
+  <link rel="stylesheet" href="components/popup/popup.css">
 </head>
 
 <body>
   <div class="ldp-wrapper d-flex justify-content-center bg-dark">
     <div class="ldp-stage position-relative" id="ldpStage">
 
-      <!-- ============ HEADER (y nguyên trang chủ) ============ -->
-      <header class="ldp-header h-auto w-100 position-relative d-flex align-items-center">
-        <div class="header-inner container-fluid px-5 d-flex justify-content-between align-items-center">
-          <a class="header-logo d-flex align-items-center gap-2">
-            <img class="img-fluid h-auto d-block" src="../assets/iconapp.png" alt="Hào Khí Du Hiệp"
-              onerror="this.style.display='none'">
-          </a>
-          <div class="header-actions d-flex align-items-center gap-3">
-            <a href="#" class="header-icon d-flex align-items-center justify-content-center rounded-circle"
-              aria-label="Trang chủ"><i class="bi bi-house-door-fill"></i></a>
-            <a href="#" class="header-icon d-flex align-items-center justify-content-center rounded-circle"
-              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a class="btn-login-img d-inline-flex align-items-center">
-              <img class="img-fluid d-block" src="../assets/đn.png" alt="Đăng nhập"
-                onerror="this.parentElement.classList.add('img-fallback')">
-            </a>
-          </div>
-        </div>
-      </header>
+      <div id="header-placeholder"></div>
 
       <div class="ldp-bg-wrap position-relative w-100" style="background-image:url('../assets/BGTRANGVOTING.png');">
 
@@ -59,34 +41,7 @@
             </div>
           </div>
 
-          <!-- ===== NAV TABS trang Voting: Hướng dẫn / Hoa Free / [VOTE NGAY] / Quà tích lũy / Nạp hoa ===== -->
-          <nav class="ldp-navtabs mx-auto position-relative d-flex justify-content-between align-items-center">
-            <div class="menu-left d-flex align-items-center gap-4">
-              <button type="button" class="navtab-img-btn btn p-0 border-0 bg-transparent shadow-none"
-                data-bs-toggle="modal" data-bs-target="#modalHuongDan">
-                <img class="img-fluid d-block" src="../assets/hd.png" alt="Hướng dẫn">
-              </button>
-              <button type="button" class="navtab-img-btn btn p-0 border-0 bg-transparent shadow-none"
-                data-bs-toggle="modal" data-bs-target="#modalNhanHoaFree">
-                <img class="img-fluid d-block" src="../assets/hoafree.png" alt="Hoa Free">
-              </button>
-            </div>
-
-            <a href="#"
-              class="navtabs-badge position-static flex-shrink-0 position-absolute start-50 translate-middle-x">
-              <img src="../assets/votengay.png" alt="Vote ngay">
-            </a>
-
-            <div class="menu-right d-flex align-items-center gap-4">
-              <a href="#tichluy" class="navtab-img-btn">
-                <img class="w-100 d-block h-auto" src="../assets/quatichluy.png" alt="Quà tích lũy">
-              </a>
-              <a href="#" class="navtab-img-btn">
-                <img class="w-100 d-block h-auto" src="../assets/naphoa.png" alt="Nạp hoa">
-              </a>
-            </div>
-
-          </nav>
+          <div id="navbar-placeholder"></div>
 
           <div class="nav-bottom-frame position-relative d-flex justify-content-center">
             <img class="w-100" src="../assets/khungdautrang.png" alt="">
@@ -366,280 +321,49 @@
     </div><!-- /.ldp-stage -->
   </div><!-- /.ldp-wrapper -->
 
-  <!-- Modal HƯỚNG DẪN (Bootstrap 5) – đặt ngoài wrapper để tránh scale transform -->
-  <div class="modal fade" id="modalHuongDan" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered ldp-modal__dialog--rules-bs">
-      <div class="modal-content ldp-modal__content-transparent">
-        <div class="ldp-modal__frame">
-          <img class="ldp-modal__img" src="../assets/popup_huongdan.png" alt="Hướng dẫn">
-          <button type="button" class="ldp-modal__close-hotspot" data-bs-dismiss="modal" aria-label="Đóng"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal NHẬN HOA FREE (Bootstrap 5) -->
-  <div class="modal fade" id="modalNhanHoaFree" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered ldp-modal__dialog--nhanhoa-bs">
-      <div class="modal-content ldp-modal__content-transparent">
-        <div class="ldp-modal__frame nhanhoa-frame" style="background-image:url('../assets/popup_nhanhoafree.png');">
-          <button type="button" class="ldp-modal__close-hotspot" data-bs-dismiss="modal" aria-label="Đóng"></button>
-          <div class="nhanhoa-list">
-
-    <div class="nhanhoa-row">
-        <img src="../assets/nv.png" class="nhanhoa-box" alt="">
-        <div class="nhanhoa-content">
-            <span>Đăng nhập mỗi ngày: +10 hoa</span>
-            <button class="nhanhoa-btn">
-                <img src="../assets/buttonnhan.png" alt="Nhận">
-            </button>
-        </div>
-    </div>
-
-    <div class="nhanhoa-row">
-        <img src="../assets/nv.png" class="nhanhoa-box" alt="">
-        <div class="nhanhoa-content">
-            <span>Share Landing: +10 hoa</span>
-            <button class="nhanhoa-btn">
-                <img src="../assets/buttonnhan.png" alt="Nhận">
-            </button>
-        </div>
-    </div>
-
-    <div class="nhanhoa-row">
-        <img src="../assets/nv.png" class="nhanhoa-box" alt="">
-        <div class="nhanhoa-content">
-            <span>Like Fanpage: +10 hoa</span>
-            <button class="nhanhoa-btn">
-                <img src="../assets/buttonnhan.png" alt="Nhận">
-            </button>
-        </div>
-    </div>
-
-    <div class="nhanhoa-row">
-        <img src="../assets/nv.png" class="nhanhoa-box" alt="">
-        <div class="nhanhoa-content">
-            <span>Like Post: +10 hoa</span>
-            <button class="nhanhoa-btn">
-                <img src="../assets/buttonnhan.png" alt="Nhận">
-            </button>
-        </div>
-    </div>
-
-    <div class="nhanhoa-row">
-        <img src="../assets/nv.png" class="nhanhoa-box" alt="">
-        <div class="nhanhoa-content">
-            <span>Tham gia group: +10 hoa</span>
-            <button class="nhanhoa-btn">
-                <img src="../assets/buttonnhan.png" alt="Nhận">
-            </button>
-        </div>
-    </div>
-
-</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= POPUP THÔNG TIN THÍ SINH (Bootstrap 5 Modal) ================= -->
-  <div class="modal fade popup-modal-thisinh" id="popupOverlay" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered popup-modal-dialog-thisinh">
-      <div class="modal-content popup-modal-content-transparent">
-        <div class="popup-thisinh">
-          <img src="../assets/pop up_thongtinthising.png" class="popup-bg" alt="">
-          <button class="popup-close" id="popupCloseBtn" data-bs-dismiss="modal" aria-label="Đóng"></button>
-          <div class="popup-main-image">
-            <img id="popupMainImage" src="../assets/anhto.png" alt="">
-          </div>
-          <div class="popup-images">
-            <img src="../assets/anhnho1.png" class="popup-thumb active" data-thumb="0" alt="">
-            <img src="../assets/anhnho2.png" class="popup-thumb" data-thumb="1" alt="">
-            <img src="../assets/anhnho3.png" class="popup-thumb" data-thumb="2" alt="">
-          </div>
-          <div class="popup-note">*Bắt buộc phải đăng ký đủ 4 ảnh dự thi</div>
-          <div class="popup-info">
-            <div class="popup-info-row">
-              <span class="popup-label">Nhân Vật:</span>
-              <span class="popup-value popup-value--name" id="popupName">Lục Trà Bạc Hà</span>
-              <span class="popup-label popup-label--sbd">SBD:</span>
-              <span class="popup-value" id="popupSBD">01239</span>
-            </div>
-            <div class="popup-info-row">
-              <span class="popup-label">Bang Hội:</span>
-              <span class="popup-value" id="popupGuild">Lạc Viên</span>
-            </div>
-            <div class="popup-info-row">
-              <span class="popup-label">Máy Chủ:</span>
-              <span class="popup-value" id="popupServer">S1-Lý Bạch</span>
-            </div>
-            <div class="popup-info-row">
-              <span class="popup-label">Lời giới thiệu:</span>
-            </div>
-            <p class="popup-desc" id="popupDesc">
-              Xin chào, mình là [Tên nhân vật]. Mình tham gia Mister để lưu giữ lại kỉ niệm và những khoảnh khắc đẹp.
-            </p>
-            <div class="popup-stat-box">
-              <img src="../assets/boxsohoa.png" class="popup-stat-bg" alt="">
-              <div class="popup-stat-content">
-                <div class="popup-stat-item">
-                  <span class="popup-stat-label">Số hoa đã nhận</span>
-                  <h3 id="popupHoa">9999</h3>
-                </div>
-                <div class="popup-stat-divider"></div>
-                <div class="popup-stat-item">
-                  <span class="popup-stat-label"><img src="../assets/xephang.png" class="popup-rank-icon"
-                      alt="">Hạng</span>
-                  <h3 id="popupRank">77</h3>
-                </div>
-              </div>
-            </div>
-            <label class="popup-flower-label">Số hoa muốn tặng</label>
-            <div class="popup-number">
-              <img src="../assets/tihanh+-.png" class="popup-number-bg" alt="">
-              <div class="popup-number-inner">
-                <button type="button" class="popup-number-btn" id="btnDecrease">−</button>
-                <input type="text" id="flowerInput" value="10000">
-                <button type="button" class="popup-number-btn" id="btnIncrease">+</button>
-              </div>
-              <img src="../assets/buttonmax.png" alt="MAX" id="btnMax" class="popup-max-btn">
-            </div>
-            <div class="popup-buttons">
-              <img src="../assets/buttontanghoa.png" alt="Tặng hoa" id="btnTangHoa" class="popup-action-btn">
-              <img src="../assets/buttonlstang.png" alt="Lịch sử tặng" id="btnLichSu" class="popup-action-btn">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= POPUP TẶNG HOA THÀNH CÔNG (Bootstrap 5 Modal) ================= -->
-  <div class="modal fade popup-modal-sub" id="popupSuccess" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered popup-modal-dialog-sub">
-      <div class="modal-content popup-modal-content-transparent">
-        <div class="popup-sub-box">
-          <img src="../assets/popup_thongbao.png" class="popup-sub-bg" alt="">
-          <button class="popup-sub-close" id="successCloseBtn" data-bs-dismiss="modal" aria-label="Đóng">
-            <img src="../assets/exit.png" alt="Đóng">
-          </button>
-          <div class="popup-sub-content">
-            <h2 class="popup-sub-title">ĐÃ TẶNG HOA THÀNH CÔNG</h2>
-            <p class="popup-sub-msg">
-              Bạn đã tặng thành công <b id="successFlowerCount">0</b> hoa cho thí sinh.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= POPUP NHẬN QUÀ (GIFT CODE) (Bootstrap 5 Modal) ================= -->
-  <div class="modal fade popup-modal-sub" id="popupGift" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered popup-modal-dialog-sub">
-      <div class="modal-content popup-modal-content-transparent">
-        <div class="popup-sub-box">
-          <img src="../assets/popup_thongbao.png" class="popup-sub-bg" alt="">
-          <button class="popup-sub-close" id="giftCloseBtn" data-bs-dismiss="modal" aria-label="Đóng">
-            <img src="../assets/exit.png" alt="Đóng">
-          </button>
-          <div class="popup-sub-content">
-    <p class="popup-sub-title" style="font-size:18px;">
-        Đã đạt mốc <b id="giftMilestone">XX</b>
-    </p>
-
-    <p class="popup-sub-msg">Code của Đại Hiệp là:</p>
-
-    <!-- Box chứa mã -->
-    <div class="popup-gift-code-wrap">
-        <img src="../assets/nv.png" class="gift-code-bg" alt="">
-        <span id="giftCode">ABACA0145656</span>
-    </div>
-
-    <!-- Nút sao chép -->
-    <button class="popup-gift-copy-btn" id="btnCopyCode">
-        <img src="../assets/saochep.png" alt="">
-        <span>SAO CHÉP</span>
-    </button>
-</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= POPUP LỊCH SỬ TẶNG (Bootstrap 5 Modal) ================= -->
-  <div class="modal fade popup-modal-sub" id="popupHistory" tabindex="-1" aria-hidden="true" data-bs-backdrop="true"
-    data-bs-keyboard="true">
-    <div class="modal-dialog modal-dialog-centered popup-modal-dialog-history">
-      <div class="modal-content popup-modal-content-transparent">
-        <div class="popup-sub-box popup-sub-box--history">
-          <img src="../assets/popup_thongbao.png" class="popup-sub-bg" alt="">
-          <button class="popup-sub-close" id="historyCloseBtn" data-bs-dismiss="modal" aria-label="Đóng">
-            <img src="../assets/exit.png" alt="Đóng">
-          </button>
-          <div class="popup-sub-content popup-sub-content--history">
-            <h3 class="popup-sub-title">LỊCH SỬ TẶNG</h3>
-            <table class="popup-history-table">
-              <thead>
-                <tr>
-                  <th>STT</th>
-                  <th>Loại</th>
-                  <th>Phần thưởng</th>
-                  <th>Ngày</th>
-                </tr>
-              </thead>
-              <tbody id="historyTableBody">
-                <tr>
-                  <td>1</td>
-                  <td>Hoa</td>
-                  <td>Đã tặng 100 hoa cho Lục Trà Bạc Hà</td>
-                  <td>23/07/2026</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Code</td>
-                  <td>ABACA0145656</td>
-                  <td>23/07/2026</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= TOAST ================= -->
-  <div class="popup-toast" id="popupToast">Đã sao chép mã quà tặng</div>
+  <div id="popup-placeholder"></div>
 
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/home.js"></script>
-  <script src="../js/vote.js"></script>
-  <script src="../js/popup.js"></script>
+  <script>
+    (function () {
+      const components = [
+        { selector: '#header-placeholder', url: 'components/header/header-vote.html' },
+        { selector: '#navbar-placeholder', url: 'components/navbar/navbar-vote.html' },
+        { selector: '#popup-placeholder', url: 'components/popup/popup-vote.html' }
+      ];
+      let loadedCount = 0;
+      components.forEach(comp => {
+        fetch(comp.url)
+          .then(r => r.text())
+          .then(html => {
+            const el = document.getElementById(comp.selector.substring(1));
+            if (el) el.outerHTML = html;
+            loadedCount++;
+            if (loadedCount === components.length) {
+              // Sequentially load home.js, popup.js, then vote.js
+              loadScript('js/home.js', () => {
+                loadScript('components/popup/popup.js', () => {
+                  loadScript('js/vote.js', () => {
+                    // Trigger DOM events so that vote.js DOMContentLoaded fires
+                    document.dispatchEvent(new Event('DOMContentLoaded'));
+                    window.dispatchEvent(new Event('load'));
+                  });
+                });
+              });
+            }
+          })
+          .catch(err => console.error('Error loading component:', comp.url, err));
+      });
+
+      function loadScript(src, cb) {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = cb;
+        document.body.appendChild(s);
+      }
+    })();
+  </script>
 
 </body>
 

@@ -1,24 +1,13 @@
-/* ============================================================
-   VOTE.CSS - CHỈ chứa CSS riêng cho trang Voting.
-   Toàn bộ phần chung (header, hero, nav tabs, popup nhỏ, footer,
-   .ldp-input, .btn-img-*...) đã dùng lại từ css/home.css, không
-   lặp lại ở đây.
-============================================================ */
 
-/* Card bọc ngoài mỗi section (danh sách thí sinh / tích lũy),
-   cùng phong cách với .register-card ở trang chủ nhưng dùng riêng
-   để không phải sửa CSS dùng chung. */
 .voting-card {
     width: min(1450px, 96%);
     background: transparent;
     padding: 0 50px;
 }
-
 /* ============ DANH SÁCH THÍ SINH ============ */
 /* ===========================
    FILTER
 =========================== */
-
 .thisinh-filter {
     display: flex;
     align-items: center;
@@ -27,7 +16,6 @@
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
-
 .filter-box {
     position: relative;
     width: 215px;
@@ -39,18 +27,14 @@
     align-items: center;
     padding: 0 18px;
 }
-
 .filter-blue {
     background-image: url("../assets/box.png");
 }
-
 .filter-white {
     width: 300px;
     background-image: url("../assets/boxtrang.png");
 }
-
 /* Select */
-
 .filter-box select {
     width: 100%;
     height: 100%;
@@ -64,9 +48,7 @@
     cursor: pointer;
     padding-right: 28px;
 }
-
 /* Mũi tên */
-
 .filter-blue::after {
     content: "";
     position: absolute;
@@ -80,9 +62,7 @@
     border-top: 10px solid #ddd;
     pointer-events: none;
 }
-
 /* Search */
-
 .filter-white input {
     width: 100%;
     height: 100%;
@@ -93,13 +73,10 @@
     font-size: 15px;
     padding-right: 34px;
 }
-
 .filter-white input::placeholder {
     color: #2c46d6;
 }
-
 /* Icon */
-
 .filter-white i {
     position: absolute;
     right: 18px;
@@ -108,35 +85,27 @@
     color: #2c46d6;
     font-size: 18px;
 }
-
 /* Không dùng style bootstrap */
-
 .thisinh-filter select:focus,
 .thisinh-filter input:focus {
     outline: none;
     box-shadow: none;
 }
-
 /*==========================
 THẺ THÍ SINH
 ==========================*/
-
 .thisinh-grid {
     margin-top: 30px;
 }
-
 .thisinh-card {
     position: relative;
     width: 100%;
 }
-
 .thisinh-card__bg {
     width: 100%;
     display: block;
 }
-
 /* Góc trái */
-
 .thisinh-card__rank {
     position: absolute;
     left: 12px;
@@ -145,19 +114,15 @@ THẺ THÍ SINH
     align-items: center;
     gap: 5px;
 }
-
 .thisinh-card__rank img {
     width: 18px;
 }
-
 .thisinh-card__rank span {
     color: #fff;
     font-size: 18px;
     font-weight: 700;
 }
-
 /* Góc phải */
-
 .thisinh-card__flower {
     position: absolute;
     right: 14px;
@@ -166,19 +131,15 @@ THẺ THÍ SINH
     align-items: center;
     gap: 5px;
 }
-
 .thisinh-card__flower img {
     width: 18px;
 }
-
 .thisinh-card__flower span {
     color: #fff;
     font-size: 18px;
     font-weight: 700;
 }
-
 /* Tên */
-
 .thisinh-card__name {
     position: absolute;
     left: 0;
@@ -189,7 +150,6 @@ THẺ THÍ SINH
     font-size: 20px;
     font-weight: bold;
 }
-
 /* Server */
 
 .thisinh-card__server {
@@ -201,9 +161,6 @@ THẺ THÍ SINH
     color: #fff;
     font-size: 15px;
 }
-
-
-
 .vote-pagination {
     display: flex;
     justify-content: center;
@@ -212,7 +169,6 @@ THẺ THÍ SINH
     margin: 40px 0 70px;
     flex-wrap: wrap;
 }
-
 .page-btn {
     border: none;
     background: transparent;
@@ -222,7 +178,6 @@ THẺ THÍ SINH
     cursor: pointer;
     padding: 0;
 }
-
 /* Box lớn */
 .page-btn-lg {
     background-image: url("../assets/boxlon.png");
@@ -230,7 +185,6 @@ THẺ THÍ SINH
     /* đúng bằng kích thước ảnh */
     height: 43px;
 }
-
 /* Box trung */
 .page-btn-md {
     background-image: url("../assets/boxtrung.png");
@@ -238,35 +192,29 @@ THẺ THÍ SINH
     /* đúng bằng kích thước ảnh */
     height: 43px;
 }
-
 /* Box nhỏ */
 .page-btn-sm {
     background-image: url("../assets/boxnho.png");
     width: 26px;
     height: 43px;
 }
-
 /* ============ TÍCH LŨY MỐC ĐỔI QUÀ ============ */
-
 .tichluy-current {
     color: #fff;
     font-size: 32px;
     margin-bottom: 18px;
     font-weight: 700;
 }
-
 .tichluy-current b {
     color: var(--c-gold);
     font-size: 32px;
     font-weight: 700;
 }
-
 .tichluy-progress {
     position: relative;
     margin: 0 auto 10px;
     max-width: 900px;
 }
-
 .section-title img {
     width: auto;
     height: auto;
@@ -274,11 +222,9 @@ THẺ THÍ SINH
     display: block;
     margin: 0 auto;
 }
-
 /*============================
 TIẾN TRÌNH
 =============================*/
-
 .progress-bar-custom {
     position: relative;
     width: 1320px;
@@ -288,12 +234,10 @@ TIẾN TRÌNH
     /* Thêm khoảng cách phía trên */
     margin-bottom: 50px;
 }
-
 .progress-bar-img {
     width: 100%;
     display: block;
 }
-
 .progress-fill {
     position: absolute;
     left: 45px;
@@ -303,17 +247,14 @@ TIẾN TRÌNH
     background: linear-gradient(90deg, #61ffff, #ffffff);
     border-radius: 30px;
 }
-
 .progress-flower {
     position: absolute;
     transform: translateX(-50%);
     text-align: center;
 }
-
 .progress-flower img {
     width: 150px;
 }
-
 .progress-flower span {
     display: block;
     margin-top: 8px;
@@ -321,32 +262,25 @@ TIẾN TRÌNH
     font-size: 25px;
     font-weight: 700;
 }
-
 .flower1 {
     left: 14%;
     top: -28px;
 }
-
 .flower2 {
     left: 39%;
     top: -28px;
 }
-
 .flower3 {
     left: 64%;
     top: -28px;
 }
-
 .flower4 {
     left: 89%;
     top: -28px;
 }
-
-
 /*============================
 QUÀ
 =============================*/
-
 .tichluy-gifts {
     display: flex;
     justify-content: space-between;
@@ -354,18 +288,15 @@ QUÀ
     margin-top: 30px;
     margin-bottom: 70px;
 }
-
 .gift-item {
     position: relative;
     width: 190px;
     text-align: center;
 }
-
 .gift-bg {
     width: 100%;
     display: block;
 }
-
 .gift-grid {
     position: absolute;
     left: 50%;
@@ -377,20 +308,17 @@ QUÀ
     gap: 4px;
     /* giảm khoảng cách */
 }
-
 .gift-grid div {
     width: 70px;
     /* giảm kích thước ô */
     height: 70px;
     background: #fff;
 }
-
 .gift-btn {
     width: 200px;
     margin-top: 18px;
     cursor: pointer;
 }
-
 /*=============================
 BẢNG XẾP HẠNG
 =============================*/
@@ -646,16 +574,6 @@ BẢNG XẾP HẠNG
 .nhanhoa-input::placeholder {
     color: #b3a5c4;
 }
-
-
-
-/* [ĐÃ SỬA] Trước đây có thêm rule "#tichluy{width:min(1450px,96%);margin:0 auto;padding:0 50px;}"
-   ở đây. Vì bên trong section này đã có div.voting-card cũng đặt
-   width:min(1450px,96%), 2 lớp cộng dồn khiến nội dung của mục
-   "Tích lũy mốc đổi quà" bị hẹp hơn mục "Danh sách thí sinh" một
-   chút (96% của 96%). Bỏ rule dư này để khớp đúng cách mục Danh
-   sách thí sinh đang làm (chỉ .voting-card chịu trách nhiệm co giãn),
-   giúp 2 mục rộng bằng nhau như thiết kế. */
 
 #bxh {
     width: 100%;

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-
+  /* ============ STAGE SCALING ============ */
   var stage = document.getElementById("ldpStage");
   var wrapper = document.querySelector(".ldp-wrapper");
   var STAGE_WIDTH = 1920;
@@ -18,40 +18,7 @@
   window.addEventListener("load", scaleStage);
   scaleStage();
 
-  function openModal(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.classList.add("show");
-  }
-
-  function closeModal(el) {
-    if (!el) return;
-    el.classList.remove("show");
-  }
-
-  document.querySelectorAll("[data-modal-open]").forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      openModal(btn.getAttribute("data-modal-open"));
-    });
-  });
-
-  document.querySelectorAll("[data-modal-close]").forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      closeModal(btn.closest(".ldp-modal"));
-    });
-  });
-
-  // Bấm vào nền tối (ngoài khung ảnh popup) để đóng
-  document.querySelectorAll("[data-modal-backdrop]").forEach(function (backdrop) {
-    backdrop.addEventListener("click", function (e) {
-      if (e.target === backdrop) {
-        closeModal(backdrop);
-      }
-    });
-  });
-
+  /* ============ PHOTO UPLOAD ============ */
   var fileMain = document.getElementById("fileMain");
   var uploadMainLabel = document.getElementById("uploadMainLabel");
   var photoSlots = Array.prototype.slice.call(document.querySelectorAll(".photo-slot"));
@@ -120,12 +87,10 @@
           alert("Bạn đã thêm đủ 4 ảnh dự thi.");
         }
       }
-      fileMain.value = ""; // cho phép chọn tiếp để thêm ảnh kế tiếp
+      fileMain.value = "";
     });
   }
 
-  /* Bấm trực tiếp vào từng ô ảnh nhỏ (filePhoto1/2/3) cũng thêm được ảnh luôn,
-     không cần bấm qua ảnh chính. */
   ["filePhoto1", "filePhoto2", "filePhoto3"].forEach(function (id) {
     var input = document.getElementById(id);
     if (!input) return;
@@ -138,7 +103,7 @@
     });
   });
 
-  /* CCCD mặt trước/sau: đánh dấu đã chọn file */
+  /* CCCD mặt trước/sau */
   ["fileCccdFront", "fileCccdBack"].forEach(function (id) {
     var input = document.getElementById(id);
     if (!input) return;
@@ -159,27 +124,15 @@
     });
   }
 
-  
+  /* ============ ĐĂNG KÝ THÀNH CÔNG (Bootstrap Modal) ============ */
   var registerForm = document.getElementById("registerForm");
   if (registerForm) {
     registerForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      // TODO: gọi API đăng ký thực tế tại đây trước khi show popup thành công
-      openModal("modalSuccess");
+      var modalEl = document.getElementById("modalSuccess");
+      if (modalEl && typeof bootstrap !== "undefined") {
+        bootstrap.Modal.getOrCreateInstance(modalEl).show();
+      }
     });
   }
 })();
-
-const form = document.getElementById("registerForm");
-const modalSuccess = document.getElementById("modalSuccess");
-
-form.addEventListener("submit", function (e) {
-    e.preventDefault();      // Không reload trang
-
-    modalSuccess.classList.add("show");
-});
-document.querySelectorAll("[data-modal-close]").forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.closest(".ldp-modal").classList.remove("show");
-    });
-});

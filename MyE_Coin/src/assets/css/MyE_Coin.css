@@ -674,20 +674,16 @@ body {
    TRUST BADGES BAR
    ========================================================== */
 .trust-badges-bar {
-    width: 83%;
-    margin: 50px auto 40px;
-
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-   padding: 16px 140px 16px 20px;
-
+      width: 80%;    
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 10px;
 
-    position: relative;
-
+    text-align: left;
+    padding: 16px 140px 16px 0px;
 }
 
 .trust-badge-item {
@@ -695,10 +691,9 @@ body {
     align-items: flex-start;
     gap: 12px;
     flex: 1;
-    min-width: 0;
 }
 .trust-badge-item > div {
-    max-width: 200px;   /* Chỉnh 150-180px tùy ý */
+    max-width: 180px;   /* Chỉnh 150-180px tùy ý */
 }
 .trust-badge-item i {
     font-size: 24px;
@@ -724,9 +719,9 @@ body {
 
 .mascot-character {
     position: absolute;
-    right: -25px;
+    right: -75px;
     bottom: 0;
-    height: 160px;
+    height: 170px;
     width: auto;
     pointer-events: none;
 }
@@ -751,6 +746,7 @@ body {
     max-width: 480px;
     margin: 0 auto;
     backdrop-filter: blur(10px);
+    left: 160px;
 }
 
 .checkout-heading {
@@ -864,7 +860,7 @@ body {
 /* RESPONSIVE EXTRA */
 @media (max-width: 767px) {
     .trust-badges-bar {
-        flex-direction: column;
+        flex-direction: row;
         gap: 16px;
         text-align: center;
         padding-bottom: 30px;

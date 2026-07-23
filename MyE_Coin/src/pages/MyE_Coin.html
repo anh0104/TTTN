@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nạp MYE Coin | MYE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/MyE_Coin.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header-wrapper">
+        <div class="container">
+            <div class="header-row">
+                <a href="Nap_game.html" class="header-logo-link">
+                    <img src="../assets/images/Trang_Chu/logo_Mye.png" alt="MYE" class="mye-logo"
+                        onerror="this.src='../assets/images/logo.png'">
+                </a>
+                <nav class="header-nav">
+                    <ul class="navbar-nav flex-row mye-nav">
+                        <li class="nav-item"><a href="#" class="nav-link">Trang Chủ</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Trò Chơi</a></li>
+                        <li class="nav-item"><a href="Nap_game.html" class="nav-link active">Nạp Game</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Tin Tức</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Hỗ Trợ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-user-area">
+                    <div id="header-user-section"></div>
+                    <div class="user-dropdown-card" id="user-dropdown-card">
+                        <div class="dropdown-user-header">
+                            <i class="fa-solid fa-circle-user fa-lg text-primary"></i>
+                            <span>myepro123</span>
+                        </div>
+                        <a href="MyE_Coin.html" class="dropdown-item-mye">
+                            <i class="fa-solid fa-receipt"></i>
+                            Lịch sử thanh toán
+                        </a>
+                        <a href="Tai_khoan.html" class="dropdown-item-mye">
+                            <i class="fa-solid fa-gears"></i>
+                            Quản lý tài khoản
+                        </a>
+                        <a href="#" class="dropdown-item-mye logout" id="btn-logout">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Đăng xuất
+                        </a>
+                        <div class="dropdown-footer">
+                            <img src="../assets/images/Trang_Chu/logo_Mye.png" alt="MYE"
+                                onerror="this.src='../assets/images/logo.png'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="mye-breadcrumb" id="breadcrumb-dynamic">
+                <a href="Nap_game.html">Nạp Game</a>
+                <span class="mx-1 text-muted">&gt;</span>
+                <span class="breadcrumb-current" id="breadcrumb-current">MyE Coin</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== PAGE 2: MyE Coin Recharge ===== -->
+    <div id="page-mye-coin-recharge" class="page-view">
+
+        <!-- Hero Banner -->
+        <div class="hero-container">
+            <div class="hero-banner-inner position-relative">
+                <img src="../assets/images/MyE_Coin/Hero-banner.png" alt="MyE Coin Recharge Banner"
+                    class="hero-banner-img" onerror="this.src='../assets/images/Nap_Game/Hero-banner.png'">
+                <button type="button" class="btn-banner-history"
+                    onclick="alert('Đã mở trang Lịch sử giao dịch thành công!')">Lịch sử giao dịch</button>
+            </div>
+        </div>
+
+        <div class="container py-4 my-2">
+            <!-- Account Dashboard -->
+            <div class="user-info-card">
+                <div class="row align-items-center">
+                    <div class="col-4 info-item-box">
+                        <div class="info-item-label">Tài khoản</div>
+                        <div class="info-item-val" id="user-account-field">myepro123</div>
+                    </div>
+                    <div class="col-4 info-item-box">
+                        <div class="info-item-label">MyE ID</div>
+                        <div class="info-item-val" id="user-myeid-field">12233548</div>
+                    </div>
+                    <div class="col-4 info-item-box">
+                        <div class="info-item-label">Số dư</div>
+                        <div class="info-item-val balance" id="user-balance-field">
+                            1200 <img src="../assets/images/MyE_Coin/coin_M.png" class="coin-icon" alt="coin">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment methods -->
+            <h3 class="section-heading-mye">Chọn hình thức nạp</h3>
+            <div class="methods-grid">
+                <div class="method-card active" data-method-id="direct">
+                    <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/Thanh_toan_truc_tiep.png" class="method-img"
+                        alt="Direct" onerror="this.src='https://placehold.co/40'">
+                    <span class="method-name">Thanh toán trực tiếp</span>
+                </div>
+                <div class="method-card" data-method-id="zalopay">
+                    <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/ZaloPay.png" class="method-img" alt="ZaloPay"
+                        onerror="this.src='https://placehold.co/40'">
+                    <span class="method-name">ZaloPay</span>
+                </div>
+                <div class="method-card" data-method-id="momo">
+                    <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/MOMO.png" class="method-img" alt="Ví Momo"
+                        onerror="this.src='https://placehold.co/40'">
+                    <span class="method-name">Ví Momo</span>
+                </div>
+                <div class="method-card" data-method-id="atm">
+                    <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/ATM.png" class="method-img" alt="ATM/Banking"
+                        onerror="this.src='https://placehold.co/40'">
+                    <span class="method-name">ATM/Banking</span>
+                </div>
+                <div class="method-card" data-method-id="visa">
+                    <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/Visa.png" class="method-img" alt="Visa/Master"
+                        onerror="this.src='https://placehold.co/40'">
+                    <span class="method-name">Visa/Master</span>
+                </div>
+                <div class="method-card" data-method-id="identified_acc">
+                    <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/Tai_khoan_dinh_danh.png" class="method-img"
+                        alt="Tài khoản định danh" onerror="this.src='https://placehold.co/40'">
+                    <span class="method-name">Tài khoản định danh<br>(BIDV, VIB)</span>
+                </div>
+                <div class="method-card" data-method-id="qrcode">
+                    <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/icon_qr.png" class="method-img" alt="QR Code"
+                        onerror="this.src='https://placehold.co/40'">
+                    <span class="method-name">QR Code</span>
+                </div>
+            </div>
+
+            <!-- Packages Grid -->
+            <h3 class="section-heading-mye">Chọn gói nạp</h3>
+            <div class="packages-grid-wrapper">
+                <div class="packages-grid" id="packages-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+
+            <!-- Guide -->
+            <div class="guide-container-card">
+                <h4 class="guide-title">HƯỚNG DẪN NẠP GAME</h4>
+                <ul class="guide-list">
+                    <li class="guide-item">
+                        <span class="guide-num">1</span>
+                        <p class="guide-text">Chọn hình thức nạp phía trên.</p>
+                    </li>
+                    <li class="guide-item">
+                        <span class="guide-num">2</span>
+                        <p class="guide-text">Chọn gói MyE Coin muốn nạp.</p>
+                    </li>
+                    <li class="guide-item">
+                        <span class="guide-num">3</span>
+                        <p class="guide-text">Thanh toán theo hướng dẫn.</p>
+                    </li>
+                    <li class="guide-item">
+                        <span class="guide-num">4</span>
+                        <p class="guide-text">MyE Coin nhận được sẽ nạp vào tài khoản game của bạn quý khách thanh toán
+                            hoàn thành.</p>
+                    </li>
+                    <li class="guide-item">
+                        <span class="guide-num">5</span>
+                        <p class="guide-text"><strong>Sử dụng MyE Coin:</strong><br>- Đăng nhập vào app game.<br>- Chọn
+                            gói nạp/tài nguyên mong muốn trong game.<br>- MyE Coin sẽ tự động thanh toán và trừ trong số
+                            dư.</p>
+                    </li>
+                </ul>
+                <a href="#" class="guide-lock-link"><i class="fa-solid fa-lock"></i> Giao dịch an toàn bảo mật chuẩn mã
+                    hóa SSL</a>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="trust-badges-bar">
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon trust-badge-icon--blue">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <div class="trust-badge-label trust-badge-label--blue">An toàn &amp; Bảo mật</div>
+                        <div class="trust-badge-desc">Giao dịch được mã hoá, thông tin của bạn luôn được bảo vệ</div>
+                    </div>
+                </div>
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon trust-badge-icon--orange">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="trust-badge-label trust-badge-label--orange">Nạp tự động 24/7</div>
+                        <div class="trust-badge-desc">Thanh toán thành công, MyE Coin sẽ được cộng ngay vào tài khoản.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon trust-badge-icon--teal">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div>
+                        <div class="trust-badge-label trust-badge-label--teal">Hỗ trợ nhanh chóng</div>
+                        <div class="trust-badge-desc">Email: hotro@mye.vn<br>Hotline: 0902 500 198</div>
+                    </div>
+                </div>
+
+                <img src="../assets/images/MyE_Coin/girlMye.png" class="mascot-character" alt="mascot"
+                    onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PAGE 3: Transaction / Checkout ===== -->
+    <div id="page-payment-checkout" class="page-view d-none">
+
+        <!-- Checkout card -->
+        <div class="checkout-jumbotron-wrapper"
+            style="background-image: url('../assets/images/thong_tin_giao_dich/bannerdaugame.png'); background-color: #e5f1ff;">
+            <div class="container">
+                <div class="checkout-box-outer">
+                    <h3 class="checkout-heading">Nạp MYE Coin</h3>
+
+                    <div class="checkout-form-item">
+                        <div class="checkout-item-left">
+                            <span class="checkout-icon"><i class="fa-regular fa-user"></i></span>
+                            <span>Tài khoản</span>
+                        </div>
+                        <div class="checkout-item-right" id="invoice-account">myepro123</div>
+                    </div>
+
+                    <div class="checkout-form-item">
+                        <div class="checkout-item-left">
+                            <span class="checkout-icon"><i class="fa-regular fa-id-badge"></i></span>
+                            <span>MYE ID</span>
+                        </div>
+                        <div class="checkout-item-right" id="invoice-mye-id">12233548</div>
+                    </div>
+
+                    <div class="checkout-form-item">
+                        <div class="checkout-item-left">
+                            <span class="checkout-icon"><img src="../assets/images/MyE_Coin/coin_M.png"
+                                    class="coin-icon" alt="coin"></span>
+                            <span>MYE Coin Nhận được</span>
+                        </div>
+                        <div class="checkout-item-right" style="color: #2e7d32; font-weight: 800;">
+                            <span id="invoice-coins">500</span> Coins
+                        </div>
+                    </div>
+
+                    <div class="checkout-form-item">
+                        <div class="checkout-item-left">
+                            <span class="checkout-icon"><i class="fa-regular fa-credit-card"></i></span>
+                            <span>Phương thức thanh toán</span>
+                        </div>
+                        <div class="checkout-item-right">
+                            <div class="checkout-method-pill" id="invoice-method-pill">
+                                <img src="../assets/images/MyE_Coin/Hinh_thuc_nap/MOMO.png" alt="Momo">
+                                <span>Momo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-info-bubble">
+                        Đang thực hiện thanh toán qua ví điện tử
+                    </div>
+
+                    <div class="checkout-total-row">
+                        <div class="checkout-total-label">Số tiền thanh toán</div>
+                        <div class="checkout-total-val" id="invoice-total-vnd">500.000 VNĐ</div>
+                    </div>
+
+                    <button type="button" class="btn-checkout-submit" id="btn-checkout-submit">THANH TOÁN</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-4 my-2">
+            <h3 class="section-heading-mye">Chọn gói nạp khác</h3>
+            <div class="packages-grid-wrapper">
+                <div class="packages-grid" id="checkout-other-packages"></div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="trust-badges-bar mt-5">
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon trust-badge-icon--blue">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <div class="trust-badge-label trust-badge-label--blue">An toàn &amp; Bảo mật</div>
+                        <div class="trust-badge-desc">Giao dịch được mã hoá, thông tin của bạn luôn được bảo vệ</div>
+                    </div>
+                </div>
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon trust-badge-icon--orange">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="trust-badge-label trust-badge-label--orange">Nạp tự động 24/7</div>
+                        <div class="trust-badge-desc">Thanh toán thành công, MyE Coin sẽ được cộng ngay vào tài khoản.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon trust-badge-icon--teal">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div>
+                        <div class="trust-badge-label trust-badge-label--teal">Hỗ trợ nhanh chóng</div>
+                        <div class="trust-badge-desc">Email: hotro@mye.vn<br>Hotline: 0902 500 198</div>
+                    </div>
+                </div>
+
+                <img src="../assets/images/MyE_Coin/girlMye.png" class="mascot-character" alt="mascot"
+                    onerror="this.style.display='none'">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-wrapper">
+        <div class="container text-center">
+            <img src="../assets/images/Trang_Chu/logo_Mye.png" alt="MYE Logo" class="footer-logo"
+                onerror="this.src='../assets/images/logo.png'">
+            <p class="footer-text">Email: hotro@mye.vn</p>
+            <p class="footer-text">Hotline: 1900 530 196</p>
+            <p class="footer-text footer-highlight">CÔNG TY CỔ PHẦN MYE</p>
+            <p class="footer-text">Chịu trách nhiệm quản lý nội dung: Ông Lâm Trung Hiệp</p>
+            <p class="footer-text">Địa chỉ: 477/22 Âu Cơ, Phường Phú Trung, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt
+                Nam</p>
+            <p class="footer-text">Giấy phép C1 số 91/GP-BTTTT, Ngày cấp: 14/07/2020, Nơi cấp: Bộ Thông tin và Truyền
+                thông</p>
+            <p class="footer-text mt-3">
+                <a href="#" class="text-dark no-decoration opacity-hover">Điều khoản dịch vụ</a>
+                <span class="mx-2 text-muted">|</span>
+                <a href="#" class="text-dark no-decoration opacity-hover">Chính sách bảo mật</a>
+            </p>
+            <p class="footer-text mt-2 text-muted" style="font-size: 11px;">© Copyright 2026 MYE. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/Header_active.js"></script>
+    <script src="../assets/js/MyE_Coin.js"></script>
+</body>
+
+</html>

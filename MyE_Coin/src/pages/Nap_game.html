@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Nạp Game Chính Thức | MYE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/Nap_game.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header-wrapper bg-white border-bottom sticky-top">
+        <div class="container">
+            <div class="header-row d-flex align-items-center justify-content-between py-2 flex-nowrap">
+                <!-- Logo -->
+                <a href="Nap_game.html" class="header-logo-link flex-shrink-0">
+                    <img src="../assets/images/Trang_Chu/logo_Mye.png" alt="MYE" class="mye-logo"
+                        onerror="this.src='../assets/images/logo.png'">
+                </a>
+                <!-- Navigation -->
+                <nav class="header-nav flex-grow-1 justify-content-center d-flex">
+                    <ul class="navbar-nav flex-nowrap text-nowrap flex-row mye-nav">
+                        <li class="nav-item"><a href="#" class="nav-link text-nowrap position-relative">Trang Chủ</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-nowrap position-relative">Trò Chơi</a></li>
+                        <li class="nav-item"><a href="Nap_game.html" class="nav-link text-nowrap position-relative active">Nạp Game</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-nowrap position-relative">Tin Tức</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-nowrap position-relative">Hỗ Trợ</a></li>
+                    </ul>
+                </nav>
+                <!-- User section -->
+                <div class="header-user-area position-relative d-flex align-items-center flex-shrink-0 ">
+                    <div id="header-user-section">
+                        <!-- JS populated -->
+                    </div>
+                    <!-- Dropdown -->
+                    <div class="user-dropdown-card position-absolute end-0 bg-white rounded-3 py-2 " id="user-dropdown-card">
+                        <div class="dropdown-user-header py-2 px-3 border-bottom fw-semibold text-dark d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-user fa-lg text-primary"></i>
+                            <span>myepro123</span>
+                        </div>
+                        <a href="MyE_Coin.html" class="dropdown-item-mye d-flex  align-items-center gap-3 py-2 px-3 text-decoration-none text-secondary">
+                            <i class="fa-solid fa-receipt text-center text-secondary  text-align-center"></i>
+                            Lịch sử thanh toán
+                        </a>
+                        <a href="Tai_khoan.html" class="dropdown-item-mye d-flex  align-items-center gap-3 py-2 px-3 text-decoration-none text-secondary">
+                            <i class="fa-solid fa-gears text-center text-secondary  text-align-center"></i>
+                            Quản lý tài khoản
+                        </a>
+                        <a href="#" class="dropdown-item-mye d-flex  align-items-center gap-3 py-2 px-3 text-decoration-none text-secondary logout" id="btn-logout">
+                            <i class="fa-solid fa-right-from-bracket text-center text-secondary  text-align-center"></i>
+                            Đăng xuất
+                        </a>
+                        <div class="dropdown-footer pt-2 text-center border-top mt-2">
+                            <img src="../assets/images/Trang_Chu/logo_Mye.png" alt="MYE"
+                                onerror="this.src='../assets/images/logo.png'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <div class="hero-container position-relative p-0 m-0">
+        <div class="hero-banner-inner position-relative position-relative">
+            <img src="../assets/images/Nap_Game/Hero-banner.png" alt="Recharge Portal Banner" class="hero-banner-img w-100 d-block h-auto"
+                onerror="this.src='../assets/images/MyE_Coin/Hero-banner.png'">
+            <a href="MyE_Coin.html" class="btn-banner-history position-absolute text-white rounded-2 py-2 px-4 fw-medium text-decoration-none d-inline-block shadow">Lịch sử giao dịch</a>
+        </div>
+    </div>
+
+    <!-- GAME DIRECTORY -->
+    <div class="container py-4 my-2">
+        <!-- Title & Search -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between mb-4 gap-3">
+            <h2 class="game-section-title mb-0">Danh Sách Game</h2>
+            <div class="search-box-wrapper position-relative w-100">
+                <span class="search-icon-btn position-absolute top-50 translate-middle-y"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" id="search-game-input" class="w-100 rounded-1 border" placeholder="Hòa Khí Chiến Hồn">
+            </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="filter-scrollbar-container overflow-auto">
+    <div class="filter-pills-row d-flex gap-2 py-1 text-nowrap">
+        <button class="filter-pill d-flex align-items-center justify-content-center gap-2 bg-white border rounded-2 fw-bold shadow-sm mb-4 active" data-category="all">
+            <span>TẤT CẢ</span>
+            <span class="filter-count d-flex align-items-center justify-content-center rounded-circle fw-bold flex-shrink-0">60</span>
+        </button>
+
+        <button class="filter-pill d-flex align-items-center justify-content-center gap-2 bg-white border rounded-2 fw-bold shadow-sm mb-4" data-category="simulation">
+            <span>SIMULATION</span>
+            <span class="filter-count d-flex align-items-center justify-content-center rounded-circle fw-bold flex-shrink-0">4</span>
+        </button>
+
+        <button class="filter-pill d-flex align-items-center justify-content-center gap-2 bg-white border rounded-2 fw-bold shadow-sm mb-4" data-category="action">
+            <span>ACTION</span>
+            <span class="filter-count d-flex align-items-center justify-content-center rounded-circle fw-bold flex-shrink-0">11</span>
+        </button>
+
+        <button class="filter-pill d-flex align-items-center justify-content-center gap-2 bg-white border rounded-2 fw-bold shadow-sm mb-4" data-category="rpg">
+            <span>RPG</span>
+            <span class="filter-count d-flex align-items-center justify-content-center rounded-circle fw-bold flex-shrink-0">37</span>
+        </button>
+
+        <button class="filter-pill d-flex align-items-center justify-content-center gap-2 bg-white border rounded-2 fw-bold shadow-sm mb-4" data-category="shooting">
+            <span>SHOOTING</span>
+            <span class="filter-count d-flex align-items-center justify-content-center rounded-circle fw-bold flex-shrink-0">5</span>
+        </button>
+
+        <button class="filter-pill d-flex align-items-center justify-content-center gap-2 bg-white border rounded-2 fw-bold shadow-sm mb-4" data-category="racing">
+            <span>RACING</span>
+            <span class="filter-count d-flex align-items-center justify-content-center rounded-circle fw-bold flex-shrink-0">1</span>
+        </button>
+    </div>
+</div>
+
+        <!-- Games Grid -->
+        <div class="game-grid" id="game-grid"></div>
+
+        <!-- Pagination Dots -->
+        <div class="pagination-dots d-flex justify-content-center align-items-center gap-2">
+            <div class="pagination-dot rounded-circle active"></div>
+            <div class="pagination-dot rounded-circle"></div>
+            <div class="pagination-dot rounded-circle"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-wrapper border-top py-4 text-secondary">
+        <div class="container text-center">
+            <img src="../assets/images/Trang_Chu/logo_Mye.png" alt="MYE Logo" class="footer-logo mb-4 object-fit-contain"
+                onerror="this.src='../assets/images/logo.png'">
+            <p class="footer-text mb-2 text-secondary">Email: hotro@mye.vn</p>
+            <p class="footer-text mb-2 text-secondary">Hotline: 1900 530 196</p>
+            <p class="footer-text mb-2 text-secondary footer-highlight fw-bold">CÔNG TY CỔ PHẦN MYE</p>
+            <p class="footer-text mb-2 text-secondary">Chịu trách nhiệm quản lý nội dung: Ông Lâm Trung Hiệp</p>
+            <p class="footer-text mb-2 text-secondary">Địa chỉ: 477/22 Âu Cơ, Phường Phú Trung, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt
+                Nam</p>
+            <p class="footer-text">Giấy phép C1 số 91/GP-BTTTT, Ngày cấp: 14/07/2020, Nơi cấp: Bộ Thông tin và Truyền
+                thông</p>
+            <p class="footer-text mt-3">
+                <a href="#" class="text-dark no-decoration text-decoration-none opacity-hover">Điều khoản dịch vụ</a>
+                <span class="mx-2 text-muted">|</span>
+                <a href="#" class="text-dark no-decoration text-decoration-none opacity-hover">Chính sách bảo mật</a>
+            </p>
+            <p class="footer-text mt-2 text-muted" style="font-size: 11px;">© Copyright 2026 MYE. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/Header_active.js"></script>
+    <script src="../assets/js/Nap_game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,414 @@
+/* -------------------------------------------------------------
+ * Nap_game.css
+ * ------------------------------------------------------------- */
+
+/* ==========================================================
+   SHARED/COMMON STYLES
+   ========================================================== */
+:root {
+    --primary-orange: #ff761b;
+    --primary-dark-blue: #003366;
+    --secondary-blue: #0d6efd;
+    --dark-navy: #0b1a30;
+    --text-navy: #1b355a;
+    --text-muted: #6b7280;
+    --bg-light: #f5f7fa;
+    --footer-bg: #e9ecef;
+    --border-color: #dee2e6;
+    --transition-speed: 0.3s;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    color: var(--text-navy);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.header-wrapper {
+    z-index: 1020;
+}
+
+.header-row {
+    gap: 16px;
+}
+
+.mye-logo {
+    height: 38px;
+    object-fit: contain;
+}
+
+.mye-nav .nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-navy) !important;
+    padding: 10px 14px;
+    transition: color var(--transition-speed);
+}
+
+.mye-nav .nav-link:hover {
+    color: var(--primary-orange) !important;
+}
+
+.mye-nav .nav-link.active {
+    color: var(--primary-orange) !important;
+    font-weight: 700;
+}
+
+.mye-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 14px;
+    right: 14px;
+    height: 3px;
+    background-color: var(--primary-orange);
+    border-radius: 2px;
+}
+
+/* Login Header UI */
+.avatar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 30px;
+    transition: background-color var(--transition-speed);
+    position: relative;
+    white-space: nowrap;
+}
+
+.avatar-wrapper:hover {
+    background-color: #f1f3f5;
+}
+
+.circular-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #00bcd4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+    border: 2px solid white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-info {
+    text-align: left;
+}
+
+.avatar-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-orange);
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.avatar-balance {
+    font-size: 11px;
+    font-weight: 500;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 0;
+}
+
+.coin-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+/* User Profile Dropdown Menu */
+.user-dropdown-card {
+    top: 50px;
+    width: 220px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    display: none;
+    z-index: 1050;
+    animation: slideDown 0.25s ease-out forwards;
+}
+
+.user-dropdown-card.show {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-user-header {
+    font-size: 14px;
+}
+
+.dropdown-item-mye {
+    font-size: 14px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.dropdown-item-mye:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-orange);
+}
+
+.dropdown-item-mye i {
+    font-size: 16px;
+}
+
+.dropdown-item-mye:hover i {
+    color: var(--primary-orange);
+}
+
+.dropdown-item-mye.logout {
+    border-top: 1px solid #f1f3f5;
+    color: #dc3545;
+}
+
+.dropdown-item-mye.logout:hover {
+    background-color: #fff5f5;
+    color: #c53030;
+}
+.dropdown-footer img {
+    height: 18px;
+    object-fit: contain;
+}
+
+/* HERO BANNER */
+.hero-container {
+    background-color: var(--dark-navy);
+    overflow: hidden;
+}
+
+.btn-banner-history {
+    bottom: 25px;
+    right: 8%;
+    background-color: rgba(0, 43, 102, 0.4);
+    
+    border-radius: 8px;
+   
+    font-size: 14px;
+   
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+    backdrop-filter: blur(4px);
+    
+}
+
+.btn-banner-history:hover {
+    background-color: var(--primary-orange);
+    border-color: var(--primary-orange);
+    color: white;
+    transform: scale(1.03);
+}
+
+/* FOOTER */
+.footer-wrapper {
+    background-color: var(--footer-bg);
+    font-size: 12.5px;
+    line-height: 1.6;
+}
+
+.footer-logo {
+    height: 38px;
+}
+
+
+.footer-highlight {
+    color: var(--primary-dark-blue);
+}
+
+/* UTILITY CLASSES */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+
+.opacity-hover:hover {
+    opacity: 0.85;
+}
+
+/* RESPONSIVE COMMON */
+@media (max-width: 767px) {
+    .header-nav {
+        display: none;
+    }
+
+    .header-row {
+        justify-content: space-between;
+    }
+}
+
+/* ==========================================================
+   GAME DIRECTORY STYLES (Page 1 specific)
+   ========================================================== */
+.game-section-title {
+    color: #1b457e;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+.search-box-wrapper {
+    max-width: 250px;
+}
+
+.search-box-wrapper input {
+    padding: 6px 12px 6px 36px;
+    font-size: 14px;
+    color: var(--text-navy);
+}
+
+.search-box-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 2px rgba(255, 118, 27, 0.15);
+}
+
+.search-icon-btn {
+    left: 12px;
+    color: var(--text-muted);
+    pointer-events: none;
+    font-size: 14px;
+}
+
+/* Category Filter Tabs */
+.filter-scrollbar-container{
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+}
+
+.filter-scrollbar-container::-webkit-scrollbar{
+    display:none;
+}
+
+
+.filter-pill{
+    min-width:179px;
+    height:42px;
+    padding:0 16px;
+    font-size:15px;
+    color:#333;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.filter-pill:hover{
+    background:#f8f8f8;
+}
+
+.filter-pill.active{
+    background:#fff;
+    border-color:#cfcfcf;
+}
+
+.filter-count{
+    width:24px;
+    height:24px;
+    background:#ececec;
+    font-size:13px;
+    color:#555;
+}
+
+.filter-pill.active .filter-count{
+    background:#e5e5e5;
+    color:#444;
+}
+/* Game Card Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 991px) {
+    .game-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+.game-card-item {
+    box-shadow: none;
+    cursor: pointer;
+    transition: transform .25s;
+}
+
+.game-card-item:hover {
+    transform: translateY(-4px);
+}
+
+.game-card-img-wrapper {
+    width: 80%;
+    aspect-ratio: 1;
+    overflow: visible;      /* Không cắt ảnh */
+}
+
+.game-card-img {
+    object-fit: contain;    /* Giữ nguyên tỷ lệ ảnh */
+    background: transparent;
+}
+
+.game-card-badge {
+    display: none;          /* Ẩn ngôi sao */
+}
+
+.game-card-title {
+    font-size: 14px;
+    color: #333;
+}
+
+.game-card-item:hover .game-card-title {
+    color: var(--primary-orange);
+}
+
+.game-card-title.mye-coin-title {
+    color: var(--primary-orange);
+}
+
+/* Pagination dots */
+.pagination-dots {
+    margin-bottom: 40px;
+}
+
+.pagination-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--secondary-blue);
+    cursor: pointer;
+}
+
+.pagination-dot.active {
+    background-color: var(--primary-orange);
+    width: 10px;
+    height: 10px;
+}

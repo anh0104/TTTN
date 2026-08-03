@@ -1,0 +1,26 @@
+node_modules/
+.env
+npm-debug.log
+yarn-error.log
+
+# Uploads (giữ lại cấu trúc thư mục, bỏ qua file upload thực tế)
+src/uploads/products/*
+!src/uploads/products/.gitkeep
+src/uploads/banners/*
+!src/uploads/banners/.gitkeep
+src/uploads/news/*
+!src/uploads/news/.gitkeep
+src/uploads/avatars/*
+!src/uploads/avatars/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log

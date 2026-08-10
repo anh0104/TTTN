@@ -4,7 +4,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('banners', {
       id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
-      title: { type: Sequelize.STRING(200), allowNull: false },
+      title: { type: Sequelize.STRING(200), allowNull: true },
       image: { type: Sequelize.STRING(255), allowNull: false },
       link: { type: Sequelize.STRING(255), allowNull: true },
       sort_order: { type: Sequelize.INTEGER, allowNull: false, defaultValue: 0 },

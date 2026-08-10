@@ -23,8 +23,13 @@ router.use('/products', require('./product.routes'));
 router.use('/banners', require('./banner.routes'));
 router.use('/news', require('./news.routes'));
 router.use('/cart', require('./cart.routes'));
+router.use('/orders', require('./order.routes'));
+router.use('/payment', require('./payment.routes'));
+router.use('/webhook', require('./payment.routes'));
+router.use('/Webhook', require('./payment.routes'));
 router.use('/upload', require('./upload.routes'));
 router.use('/dashboard', require('./dashboard.routes'));
 router.use('/settings', require('./siteSetting.routes'));
+router.use('/notifications', require('./notification.routes'));
 
 module.exports = router;

@@ -6,7 +6,7 @@ module.exports = {
 
     await queryInterface.bulkInsert('site_settings', [
       { key: 'logo', value: '/uploads/site/logo.png', updated_at: now },
-      { key: 'primary_color', value: '#C89B5B', updated_at: now },
+      { key: 'primary_color', value: '#0284c7', updated_at: now },
       { key: 'dark_mode_default', value: 'false', updated_at: now },
       { key: 'show_new_products', value: 'true', updated_at: now },
       { key: 'show_flash_sale', value: 'true', updated_at: now },

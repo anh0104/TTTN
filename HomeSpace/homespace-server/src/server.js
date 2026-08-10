@@ -18,8 +18,9 @@ const startServer = async () => {
     // 1. Kết nối tới MySQL
     await connectDB();
 
-    // 2. Đồng bộ models với database (chỉ dùng khi dev, production nên dùng migration)
-    // await sequelize.sync({ alter: true }); // Sẽ bật khi đã có models ở bước 3
+    // 2. Đồng bộ models với database
+    await sequelize.sync({ alter: true });
+    console.log('✅ Synchronized database models with MySQL.');
 
     // 3. Khởi động server
     const server = app.listen(PORT, () => {

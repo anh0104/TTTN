@@ -32,7 +32,7 @@ const createBanner = catchAsync(async (req, res) => {
   if (!file) throw ApiError.badRequest('Vui lòng tải lên ảnh banner');
 
   const banner = await Banner.create({
-    title,
+    title: title || '',
     link,
     sortOrder: sortOrder || 0,
     status: status || 'active',

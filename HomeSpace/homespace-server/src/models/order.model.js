@@ -53,6 +53,22 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: 'cod',
         field: 'payment_method',
       },
+      paymentStatus: {
+        type: DataTypes.ENUM('unpaid', 'paid'),
+        allowNull: false,
+        defaultValue: 'unpaid',
+        field: 'payment_status',
+      },
+      paidAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        field: 'paid_at',
+      },
+      sepayTransactionId: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+        field: 'sepay_transaction_id',
+      },
       status: {
         type: DataTypes.ENUM('pending', 'confirmed', 'shipping', 'completed', 'cancelled'),
         allowNull: false,

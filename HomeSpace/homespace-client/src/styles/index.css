@@ -1,88 +1,116 @@
 /**
  * styles/index.css
  * ------------------------------------------------------
- * Import TailwindCSS v4 + định nghĩa design tokens (theme)
- * theo bảng màu "Minimal Luxury Interior" của HomeSpace.
- * Dark mode dùng chiến lược class (.dark trên <html>).
+ * Import TailwindCSS v4 + định nghĩa thiết kế "Minimal Luxury Interior"
+ * cho HomeSpace: tông xanh Forest Green (#2D523E), vàng đồng (#C5A059),
+ * nền sáng nhạt (#F8F9F5) và hiệu ứng mượt mà, sắc nét.
  * ------------------------------------------------------
  */
 
 @import 'tailwindcss';
 
-/* Bật dark mode theo class thay vì media query hệ điều hành */
+/* Bật dark mode theo class */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* ===== Bảng màu thương hiệu HomeSpace ===== */
+  /* ===== Bảng màu Luxury Forest Green (khớp chính xác giao diện mẫu) ===== */
   --color-white: #ffffff;
-  --color-wood: #8b5e3c; /* Wood Brown - màu gỗ chủ đạo */
-  --color-dark: #222222; /* Dark - chữ/nền tối */
-  --color-gray-light: #f5f5f5; /* Gray - nền phụ */
-  --color-accent: #c89b5b; /* Accent - vàng đồng sang trọng */
+  --color-wood: #2d523e; /* Xanh lá sang trọng đậm */
+  --color-wood-dark: #1e3a2b; /* Tông rêu cao cấp */
+  --color-dark: #141c17; /* Nền tối đậm màu đen lá */
+  --color-gray-light: #f8f9f5; /* Nền sáng kem nhạt cao cấp */
+  --color-accent: #c5a059; /* Vàng đồng kim loại sang trọng */
 
-  /* Sắc thái mở rộng của wood & accent, dùng cho hover/border/nền nhạt */
-  --color-wood-50: #f7f1eb;
-  --color-wood-100: #ede0d3;
-  --color-wood-600: #7a5236;
-  --color-wood-700: #64432c;
+  /* Sắc thái mở rộng xanh Forest dùng cho hover, active, badge */
+  --color-wood-50: #f2f6f3;
+  --color-wood-100: #e2ede5;
+  --color-wood-200: #c6dbc9;
+  --color-wood-600: #254433;
+  --color-wood-700: #1b3527;
 
-  --color-accent-50: #faf5eb;
-  --color-accent-100: #f2e5cb;
-  --color-accent-600: #b3893f;
+  --color-accent-50: #faf6ee;
+  --color-accent-100: #f3e9d4;
+  --color-accent-600: #b08a42;
 
   /* ===== Typography ===== */
-  --font-sans: 'Inter', 'Be Vietnam Pro', system-ui, sans-serif;
-  --font-display: 'Playfair Display', 'Georgia', serif; /* Dùng cho tiêu đề sang trọng */
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-display: 'Playfair Display', 'Georgia', serif;
 
-  /* ===== Animation nhẹ ===== */
-  --animate-fade-in: fade-in 0.4s ease-out;
-  --animate-slide-up: slide-up 0.4s ease-out;
+  /* ===== Animations & Transitions ===== */
+  --animate-fade-in: fade-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-pulse-subtle: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 4s ease-in-out infinite;
 
   @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
   }
   @keyframes slide-up {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.65; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
   }
 }
 
 /* ===== Base styles ===== */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  @apply bg-white text-dark dark:bg-dark dark:text-gray-light;
+  @apply bg-gray-light text-dark dark:bg-dark dark:text-gray-light/90;
   font-family: var(--font-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Scrollbar tối giản, sang trọng */
+/* Scrollbar mượt mỏng sang trọng */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-gray-light dark:bg-neutral-800;
+  @apply bg-gray-light dark:bg-neutral-900;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-wood/40 rounded-full;
+  @apply bg-wood/30 rounded-full dark:bg-accent/30;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-wood/60;
+  @apply bg-wood/60 dark:bg-accent/60;
 }
 
-/* Utility class tái sử dụng cho toàn site */
+/* ===== Utility classes ===== */
 @layer utilities {
   .container-custom {
-    @apply max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8;
   }
   .section-padding {
-    @apply py-12 md:py-16;
+    @apply py-12 md:py-20;
   }
   .heading-display {
     font-family: var(--font-display);
+  }
+  /* Hiệu ứng Glassmorphism kính mờ sang trọng */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-wood/10 shadow-sm dark:bg-neutral-900/80 dark:border-gray-light/10;
+  }
+  .glass-header {
+    @apply bg-white/90 backdrop-blur-md border-b border-wood/10 dark:bg-dark/90 dark:border-gray-light/10;
+  }
+  /* Nút bấm viền sang trọng */
+  .btn-gold {
+    @apply bg-accent text-white font-medium hover:bg-accent-600 shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98];
+  }
+  .btn-forest {
+    @apply bg-wood text-white font-medium hover:bg-wood-600 shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98];
   }
 }

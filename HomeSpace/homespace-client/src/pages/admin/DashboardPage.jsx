@@ -35,11 +35,17 @@ const STATUS_LABELS = {
   cancelled: 'Đã hủy',
 };
 
-const PIE_COLORS = ['#C89B5B', '#8B5E3C', '#4b8b6b', '#3b82f6', '#dc2626'];
+const PIE_COLORS = ['#344e39', '#d1a153', '#577a5e', '#b8883b', '#dc2626'];
 
 const DashboardPage = () => {
   const [loading, setLoading] = useState(true);
-  const [stats, setStats] = useState(null);
+  const [stats, setStats] = useState({
+    totalProducts: 0,
+    totalCategories: 0,
+    totalUsers: 0,
+    totalOrders: 0,
+    totalRevenue: 0,
+  });
   const [revenueData, setRevenueData] = useState([]);
   const [orderStatusData, setOrderStatusData] = useState([]);
   const [topProducts, setTopProducts] = useState([]);
@@ -49,22 +55,35 @@ const DashboardPage = () => {
     const fetchAll = async () => {
       try {
         const [statsRes, revenueRes, statusRes, topProductsRes, topCategoriesRes] = await Promise.all([
-          dashboardService.getStats(),
-          dashboardService.getRevenueChart(30),
-          dashboardService.getOrderStatusChart(),
-          dashboardService.getTopProducts(5),
-          dashboardService.getTopCategories(5),
+          dashboardService.getStats().catch(() => ({ data: { data: {} } })),
+          dashboardService.getRevenueChart(30).catch(() => ({ data: { data: [] } })),
+          dashboardService.getOrderStatusChart().catch(() => ({ data: { data: [] } })),
+          dashboardService.getTopProducts(5).catch(() => ({ data: { data: [] } })),
+          dashboardService.getTopCategories(5).catch(() => ({ data: { data: [] } })),
         ]);
 
-        setStats(statsRes.data.data);
+        if (statsRes?.data?.data) {
+          setStats({
+            totalProducts: statsRes.data.data.totalProducts || 0,
+            totalCategories: statsRes.data.data.totalCategories || 0,
+            totalUsers: statsRes.data.data.totalUsers || 0,
+            totalOrders: statsRes.data.data.totalOrders || 0,
+            totalRevenue: statsRes.data.data.totalRevenue || 0,
+          });
+        }
+
+        const rData = revenueRes?.data?.data || [];
         setRevenueData(
-          revenueRes.data.data.map((r) => ({ ...r, revenue: Number(r.revenue), orderCount: Number(r.orderCount) }))
+          rData.map((r) => ({ ...r, revenue: Number(r.revenue || 0), orderCount: Number(r.orderCount || 0) }))
         );
+
+        const sData = statusRes?.data?.data || [];
         setOrderStatusData(
-          statusRes.data.data.map((s) => ({ name: STATUS_LABELS[s.status] || s.status, value: Number(s.count) }))
+          sData.map((s) => ({ name: STATUS_LABELS[s.status] || s.status, value: Number(s.count || 0) }))
         );
-        setTopProducts(topProductsRes.data.data);
-        setTopCategories(topCategoriesRes.data.data);
+
+        setTopProducts(topProductsRes?.data?.data || []);
+        setTopCategories(topCategoriesRes?.data?.data || []);
       } catch (err) {
         console.error('Lỗi tải dữ liệu dashboard:', err);
       } finally {
@@ -77,21 +96,23 @@ const DashboardPage = () => {
 
   if (loading) return <Loader fullScreen />;
 
+  const safeStats = stats || { totalProducts: 0, totalCategories: 0, totalUsers: 0, totalOrders: 0, totalRevenue: 0 };
+
   return (
     <div className="animate-fade-in space-y-6">
       <h1 className="text-2xl font-semibold">Tổng quan</h1>
 
       {/* Card thống kê */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard icon={Package} label="Tổng sản phẩm" value={stats.totalProducts} color="wood" />
-        <StatCard icon={FolderTree} label="Tổng danh mục" value={stats.totalCategories} color="blue" />
-        <StatCard icon={Users} label="Tổng người dùng" value={stats.totalUsers} color="emerald" />
-        <StatCard icon={ShoppingBag} label="Tổng đơn hàng" value={stats.totalOrders} color="amber" />
+        <StatCard icon={Package} label="Tổng sản phẩm" value={safeStats.totalProducts} color="wood" />
+        <StatCard icon={FolderTree} label="Tổng danh mục" value={safeStats.totalCategories} color="blue" />
+        <StatCard icon={Users} label="Tổng người dùng" value={safeStats.totalUsers} color="emerald" />
+        <StatCard icon={ShoppingBag} label="Tổng đơn hàng" value={safeStats.totalOrders} color="amber" />
       </div>
 
       <div className="rounded-xl border border-wood/10 bg-white p-5 dark:border-gray-light/10 dark:bg-neutral-900">
         <p className="text-sm text-dark/60 dark:text-gray-light/60">Tổng doanh thu (không tính đơn đã hủy)</p>
-        <p className="mt-1 text-2xl font-semibold text-wood dark:text-accent">{formatCurrency(stats.totalRevenue)}</p>
+        <p className="mt-1 text-2xl font-semibold text-wood dark:text-accent">{formatCurrency(safeStats.totalRevenue)}</p>
       </div>
 
       {/* Biểu đồ */}
@@ -105,11 +126,11 @@ const DashboardPage = () => {
           ) : (
             <ResponsiveContainer width="100%" height={260}>
               <LineChart data={revenueData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#8B5E3C1A" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#344e391A" />
                 <XAxis dataKey="date" tick={{ fontSize: 12 }} />
                 <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${v / 1000000}tr`} />
                 <Tooltip formatter={(value) => formatCurrency(value)} />
-                <Line type="monotone" dataKey="revenue" stroke="#8B5E3C" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="revenue" stroke="#344e39" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           )}

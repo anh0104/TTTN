@@ -21,6 +21,10 @@ import ProductDetailPage from '../pages/client/ProductDetailPage';
 import CartPage from '../pages/client/CartPage';
 import NewsListPage from '../pages/client/NewsListPage';
 import NewsDetailPage from '../pages/client/NewsDetailPage';
+import CheckoutPage from '../pages/client/CheckoutPage';
+import SepayPaymentPage from '../pages/client/SepayPaymentPage';
+import OrderListPage from '../pages/client/OrderListPage';
+import OrderDetailPage from '../pages/client/OrderDetailPage';
 
 // Auth pages
 import LoginPage from '../pages/auth/LoginPage';
@@ -29,6 +33,7 @@ import RegisterPage from '../pages/auth/RegisterPage';
 // Admin pages
 import AdminLoginPage from '../pages/admin/AdminLoginPage';
 import DashboardPage from '../pages/admin/DashboardPage';
+import OrderManagePage from '../pages/admin/OrderManagePage';
 import ProductManagePage from '../pages/admin/ProductManagePage';
 import CategoryManagePage from '../pages/admin/CategoryManagePage';
 import BannerManagePage from '../pages/admin/BannerManagePage';
@@ -52,9 +57,15 @@ const router = createBrowserRouter([
       { path: 'dang-nhap', element: <LoginPage /> },
       { path: 'dang-ky', element: <RegisterPage /> },
       {
-        // Giỏ hàng yêu cầu đăng nhập (bất kỳ role nào)
+        // Giỏ hàng, Thanh toán, Đơn hàng yêu cầu đăng nhập
         element: <ProtectedRoute redirectTo="/dang-nhap" />,
-        children: [{ path: 'gio-hang', element: <CartPage /> }],
+        children: [
+          { path: 'gio-hang', element: <CartPage /> },
+          { path: 'thanh-toan', element: <CheckoutPage /> },
+          { path: 'thanh-toan/sepay/:orderCode', element: <SepayPaymentPage /> },
+          { path: 'don-hang', element: <OrderListPage /> },
+          { path: 'don-hang/:orderCode', element: <OrderDetailPage /> },
+        ],
       },
     ],
   },
@@ -69,6 +80,7 @@ const router = createBrowserRouter([
         element: <AdminLayout />,
         children: [
           { index: true, element: <DashboardPage /> },
+          { path: 'orders', element: <OrderManagePage /> },
           { path: 'products', element: <ProductManagePage /> },
           { path: 'categories', element: <CategoryManagePage /> },
           { path: 'banners', element: <BannerManagePage /> },

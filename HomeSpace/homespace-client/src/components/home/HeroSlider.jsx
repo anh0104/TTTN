@@ -7,29 +7,43 @@ import { getImageUrl } from '../../utils/format';
 
 const AUTO_PLAY_INTERVAL = 5000;
 
+const DEFAULT_BANNERS = [
+  {
+    id: 'def-1',
+    title: 'Kiến Tạo Không Gian Sống Tinh Tế - Minimal Luxury 2026',
+    link: '/san-pham',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop',
+  },
+  {
+    id: 'def-2',
+    title: 'Bộ Sưu Tập Sofa & Bàn Ăn Gỗ Tự Nhiên Cao Cấp',
+    link: '/san-pham',
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1600&auto=format&fit=crop',
+  },
+];
+
 const HeroSlider = ({ banners }) => {
+  const activeBanners = (banners && banners.length > 0) ? banners : DEFAULT_BANNERS;
   const [current, setCurrent] = useState(0);
 
   const goTo = useCallback(
     (index) => {
-      if (!banners.length) return;
-      setCurrent((index + banners.length) % banners.length);
+      if (!activeBanners.length) return;
+      setCurrent((index + activeBanners.length) % activeBanners.length);
     },
-    [banners.length]
+    [activeBanners.length]
   );
 
   useEffect(() => {
-    if (banners.length <= 1) return undefined;
+    if (activeBanners.length <= 1) return undefined;
     const timer = setInterval(() => goTo(current + 1), AUTO_PLAY_INTERVAL);
     return () => clearInterval(timer);
-  }, [current, banners.length, goTo]);
-
-  if (!banners || banners.length === 0) return null;
+  }, [current, activeBanners.length, goTo]);
 
   return (
     <section className="relative overflow-hidden bg-gray-light dark:bg-neutral-900">
-      <div className="relative aspect-[16/7] w-full min-h-[280px] md:min-h-[380px]">
-        {banners.map((banner, index) => (
+      <div className="relative aspect-[16/7] w-full min-h-[300px] md:min-h-[420px]">
+        {activeBanners.map((banner, index) => (
           <Link
             key={banner.id}
             to={banner.link || '/san-pham'}
@@ -53,7 +67,7 @@ const HeroSlider = ({ banners }) => {
           </Link>
         ))}
 
-        {banners.length > 1 && (
+        {activeBanners.length > 1 && (
           <>
             <button
               onClick={() => goTo(current - 1)}
@@ -71,7 +85,7 @@ const HeroSlider = ({ banners }) => {
             </button>
 
             <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 md:bottom-5">
-              {banners.map((banner, index) => (
+              {activeBanners.map((banner, index) => (
                 <button
                   key={banner.id}
                   onClick={() => goTo(index)}

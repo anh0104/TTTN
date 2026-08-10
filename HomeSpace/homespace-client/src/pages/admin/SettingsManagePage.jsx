@@ -8,9 +8,11 @@
 
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 import settingService from '../../services/settingService';
 import uploadService from '../../services/uploadService';
+import { updateSettingsThunk } from '../../redux/slices/settingSlice';
 import ImageUploadInput from '../../components/admin/ImageUploadInput';
 import Button from '../../components/common/Button';
 import Loader from '../../components/common/Loader';
@@ -23,14 +25,20 @@ const toggleFields = [
 ];
 
 const ToggleSwitch = ({ checked, onChange, label }) => (
-  <label className="flex cursor-pointer items-center justify-between rounded-lg border border-wood/10 px-4 py-3 dark:border-gray-light/10">
-    <span className="text-sm">{label}</span>
+  <label className="flex cursor-pointer items-center justify-between rounded-xl border border-wood/10 bg-white p-4 shadow-sm hover:border-wood/20 dark:border-gray-light/10 dark:bg-neutral-800/60 transition-all">
+    <span className="text-sm font-semibold text-dark/85 dark:text-gray-light/90">{label}</span>
     <button
       type="button"
       onClick={() => onChange(!checked)}
-      className={`relative h-6 w-11 rounded-full transition-colors ${checked ? 'bg-wood dark:bg-accent' : 'bg-gray-light dark:bg-white/15'}`}
+      className={`relative inline-flex h-7 w-14 shrink-0 cursor-pointer items-center rounded-full p-1 transition-colors duration-300 ease-in-out focus:outline-none ${
+        checked ? 'bg-[#284c38] dark:bg-accent' : 'bg-gray-300 dark:bg-neutral-700'
+      }`}
     >
-      <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${checked ? 'translate-x-5' : 'translate-x-0.5'}`} />
+      <span
+        className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-md transform transition-transform duration-300 ease-in-out ${
+          checked ? 'translate-x-7' : 'translate-x-0'
+        }`}
+      />
     </button>
   </label>
 );
@@ -40,6 +48,7 @@ const SettingsManagePage = () => {
   const [logoFile, setLogoFile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     settingService.getSettings().then((res) => setSettings(res.data.data)).finally(() => setLoading(false));
@@ -55,8 +64,8 @@ const SettingsManagePage = () => {
       }
 
       const payload = { ...settings, logo: logoUrl };
-      const { data } = await settingService.updateSettings(payload);
-      setSettings(data.data);
+      const updatedData = await dispatch(updateSettingsThunk(payload)).unwrap();
+      setSettings(updatedData);
       setLogoFile(null);
       toast.success('Cập nhật giao diện thành công');
     } catch (err) {
@@ -77,18 +86,6 @@ const SettingsManagePage = () => {
         <ImageUploadInput existingImageUrl={settings.logo} onChange={setLogoFile} />
       </div>
 
-      <div className="rounded-xl border border-wood/10 bg-white p-5 dark:border-gray-light/10 dark:bg-neutral-900">
-        <h3 className="mb-4 font-semibold">Màu chủ đạo</h3>
-        <div className="flex items-center gap-3">
-          <input
-            type="color"
-            value={settings.primary_color || '#C89B5B'}
-            onChange={(e) => setSettings({ ...settings, primary_color: e.target.value })}
-            className="h-11 w-16 cursor-pointer rounded border border-wood/20 dark:border-gray-light/15"
-          />
-          <span className="text-sm text-dark/60 dark:text-gray-light/60">{settings.primary_color}</span>
-        </div>
-      </div>
 
       <div className="rounded-xl border border-wood/10 bg-white p-5 dark:border-gray-light/10 dark:bg-neutral-900">
         <h3 className="mb-4 font-semibold">Giao diện mặc định</h3>

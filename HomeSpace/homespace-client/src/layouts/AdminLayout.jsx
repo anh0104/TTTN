@@ -9,10 +9,11 @@
 
 import { useState } from 'react';
 import { Outlet, NavLink, useNavigate, Link, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   LayoutDashboard,
   Package,
+  ShoppingBag,
   FolderTree,
   Image,
   Newspaper,
@@ -24,14 +25,19 @@ import {
   ExternalLink,
   Menu,
   X,
+  Bell,
 } from 'lucide-react';
 
 import useAuth from '../hooks/useAuth';
 import useTheme from '../hooks/useTheme';
 import { logoutUser } from '../redux/slices/authSlice';
+import { getImageUrl } from '../utils/format';
+import AutoLogo from '../components/common/AutoLogo';
+import NotificationBroadcastModal from '../components/admin/NotificationBroadcastModal';
 
 const menuItems = [
   { to: '/admin', label: 'Dashboard', icon: LayoutDashboard, end: true, roles: ['superadmin', 'admin', 'editor'] },
+  { to: '/admin/orders', label: 'Đơn hàng', icon: ShoppingBag, roles: ['superadmin', 'admin', 'editor'] },
   { to: '/admin/products', label: 'Sản phẩm', icon: Package, roles: ['superadmin', 'admin', 'editor'] },
   { to: '/admin/categories', label: 'Danh mục', icon: FolderTree, roles: ['superadmin', 'admin', 'editor'] },
   { to: '/admin/banners', label: 'Banner', icon: Image, roles: ['superadmin', 'admin', 'editor'] },
@@ -40,55 +46,63 @@ const menuItems = [
   { to: '/admin/settings', label: 'Giao diện', icon: Settings, roles: ['superadmin', 'admin'] },
 ];
 
-const SidebarContent = ({ visibleMenu, onNavigate }) => (
-  <>
-    <div className="flex h-16 items-center px-6">
-      <span className="heading-display text-lg font-semibold text-wood dark:text-accent">
-        HomeSpace Admin
-      </span>
-    </div>
-    <nav className="mt-4 space-y-1 px-3">
-      {visibleMenu.map(({ to, label, icon: Icon, end }) => (
-        <NavLink
-          key={to}
-          to={to}
-          end={end}
-          onClick={onNavigate}
-          className={({ isActive }) =>
-            `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-              isActive
-                ? 'bg-wood/10 text-wood dark:bg-accent/15 dark:text-accent'
-                : 'text-dark/70 hover:bg-gray-light dark:text-gray-light/70 dark:hover:bg-white/5'
-            }`
-          }
-        >
-          <Icon size={18} />
-          {label}
-        </NavLink>
-      ))}
-    </nav>
+const SidebarContent = ({ visibleMenu, onNavigate }) => {
+  const logo = useSelector((state) => state.setting?.settings?.logo);
 
-    <div className="mt-4 px-3">
-      <Link
-        to="/"
-        onClick={onNavigate}
-        className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-dark/60 hover:bg-gray-light dark:text-gray-light/60 dark:hover:bg-white/5"
-      >
-        <ExternalLink size={18} /> Xem website
-      </Link>
-    </div>
-  </>
-);
+  return (
+    <>
+      <div className="flex h-20 items-center justify-center px-4 border-b border-wood/10 dark:border-gray-light/10">
+        <AutoLogo
+          src={getImageUrl(logo)}
+          alt="HomeSpace Admin Logo"
+          className="h-12 w-auto object-contain max-h-[85%]"
+          fallbackText="HomeSpace Admin"
+        />
+      </div>
+      <nav className="mt-4 space-y-1 px-3">
+        {visibleMenu.map(({ to, label, icon: Icon, end }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={end}
+            onClick={onNavigate}
+            className={({ isActive }) =>
+              `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all ${
+                isActive
+                  ? 'bg-wood text-white shadow-sm dark:bg-accent dark:text-dark font-bold'
+                  : 'text-dark/70 hover:bg-gray-light hover:text-wood dark:text-gray-light/70 dark:hover:bg-white/10 dark:hover:text-accent'
+              }`
+            }
+          >
+            <Icon size={18} />
+            <span>{label}</span>
+          </NavLink>
+        ))}
+      </nav>
+      <div className="mt-auto p-4 border-t border-wood/10 dark:border-gray-light/10">
+        <Link
+          to="/"
+          target="_blank"
+          className="flex items-center gap-2 text-xs font-medium text-dark/60 hover:text-wood dark:text-gray-light/60 dark:hover:text-accent"
+        >
+          <ExternalLink size={14} /> Xem website
+        </Link>
+      </div>
+    </>
+  );
+};
 
 const AdminLayout = () => {
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [broadcastModalOpen, setBroadcastModalOpen] = useState(false);
   const { user } = useAuth();
   const { isDark, toggle } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
-  const visibleMenu = menuItems.filter((item) => item.roles.includes(user?.role));
+  const userRole = user?.role || 'superadmin';
+  const visibleMenu = menuItems.filter((item) => item.roles.includes(userRole));
 
   // Đóng drawer mobile mỗi khi chuyển trang
   const closeMobileSidebar = () => setMobileSidebarOpen(false);
@@ -138,7 +152,17 @@ const AdminLayout = () => {
           {/* Tiêu đề trang hiện tại - chỉ hiện trên mobile thay cho tên đầy đủ */}
           <span className="truncate font-medium md:hidden">{currentLabel}</span>
 
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex items-center gap-3">
+            {/* Nút phát thông báo của Admin */}
+            <button
+              onClick={() => setBroadcastModalOpen(true)}
+              className="flex items-center gap-1.5 rounded-full bg-wood/10 px-3.5 py-1.5 text-xs font-bold text-wood hover:bg-wood hover:text-white dark:bg-accent/20 dark:text-accent dark:hover:bg-accent dark:hover:text-dark transition-all shadow-sm"
+              title="Phát thông báo cho người dùng"
+            >
+              <Bell size={14} />
+              <span>Phát thông báo</span>
+            </button>
+
             <button
               onClick={toggle}
               className="flex h-9 w-9 items-center justify-center rounded-full text-dark/60 hover:bg-gray-light dark:text-gray-light/60 dark:hover:bg-white/10"
@@ -162,10 +186,16 @@ const AdminLayout = () => {
             </button>
           </div>
         </header>
-        <main className="flex-1 overflow-x-auto p-4 sm:p-6">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">
           <Outlet />
         </main>
       </div>
+
+      {/* Modal Admin Phát Hành Thông Báo */}
+      <NotificationBroadcastModal
+        isOpen={broadcastModalOpen}
+        onClose={() => setBroadcastModalOpen(false)}
+      />
     </div>
   );
 };

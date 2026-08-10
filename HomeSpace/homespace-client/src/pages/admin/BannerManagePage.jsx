@@ -61,7 +61,6 @@ const BannerManagePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.title.trim()) { setErrors({ title: 'Vui lòng nhập tiêu đề' }); return; }
     if (!editing && !imageFile) { setErrors({ image: 'Vui lòng chọn ảnh banner' }); return; }
 
     const formData = new FormData();
@@ -101,8 +100,8 @@ const BannerManagePage = () => {
   };
 
   const columns = [
-    { key: 'image', label: 'Ảnh', render: (row) => <img src={getImageUrl(row.image)} alt={row.title} className="h-12 w-20 rounded-lg object-cover" /> },
-    { key: 'title', label: 'Tiêu đề' },
+    { key: 'image', label: 'Ảnh', render: (row) => <img src={getImageUrl(row.image)} alt={row.title || 'Banner'} className="h-12 w-20 rounded-lg object-cover" /> },
+    { key: 'title', label: 'Tiêu đề', render: (row) => row.title || '—' },
     { key: 'link', label: 'Link', render: (row) => row.link || '—' },
     { key: 'sortOrder', label: 'Thứ tự' },
     { key: 'status', label: 'Trạng thái', render: (row) => <StatusBadge status={row.status} /> },
@@ -119,7 +118,7 @@ const BannerManagePage = () => {
 
       <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? 'Sửa banner' : 'Thêm banner'}>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Input label="Tiêu đề *" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} error={errors.title} />
+          <Input label="Tiêu đề (không bắt buộc)" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} error={errors.title} />
           <Input label="Link (khi click vào banner)" value={form.link} onChange={(e) => setForm({ ...form, link: e.target.value })} placeholder="/san-pham?category=1" />
           <Input label="Thứ tự hiển thị" type="number" value={form.sortOrder} onChange={(e) => setForm({ ...form, sortOrder: e.target.value })} />
           <div className="flex flex-col gap-1.5">
@@ -143,7 +142,7 @@ const BannerManagePage = () => {
       <ConfirmDialog
         open={!!deleteTarget}
         title="Xóa banner?"
-        message={`Bạn có chắc muốn xóa banner "${deleteTarget?.title}"?`}
+        message={`Bạn có chắc muốn xóa banner ${deleteTarget?.title ? `"${deleteTarget.title}"` : 'này'}?`}
         onConfirm={handleDelete}
         onCancel={() => setDeleteTarget(null)}
         loading={deleting}

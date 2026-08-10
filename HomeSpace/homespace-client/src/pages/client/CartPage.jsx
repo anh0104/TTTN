@@ -7,7 +7,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Trash2, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { toast } from 'react-toastify';
@@ -20,6 +20,7 @@ import { formatCurrency, getImageUrl } from '../../utils/format';
 
 const CartPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { items, totalAmount, loading } = useCart();
   const [updatingId, setUpdatingId] = useState(null);
 
@@ -134,7 +135,7 @@ const CartPage = () => {
             <span>Tổng cộng</span>
             <span className="text-lg text-wood dark:text-accent">{formatCurrency(totalAmount)}</span>
           </div>
-          <Button className="mt-6 w-full justify-center" size="lg">
+          <Button onClick={() => navigate('/thanh-toan')} className="mt-6 w-full justify-center" size="lg">
             Tiến hành thanh toán
           </Button>
           <Link to="/san-pham" className="mt-3 block text-center text-sm text-wood hover:underline dark:text-accent">
